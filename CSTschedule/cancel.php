@@ -1,6 +1,6 @@
 <?php
 $primaryKey = $_REQUEST["q"];
-$tableName = "set" . $_REQUEST["q2"];
+$tableName = "schdule1";
 
 	session_start();
 	
@@ -13,8 +13,8 @@ if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-mysqli_query($con,"DELETE FROM schdule1 WHERE id = '$primaryKey'");
-echo "entry Deleted";
+mysqli_query($con,"UPDATE $tableName SET special = 'c' WHERE id = '$primaryKey'");
+echo "Class cancelled";
 mysqli_close($con);
 
 ?>

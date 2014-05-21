@@ -240,6 +240,21 @@ function pullField(dataField, destinationId) {
 	xmlhttp.send();
 }
 //deletes selected event via AJAX => cancel.php
+//deletes selected event via AJAX => cancel.php
+function deleteEvent() { 
+ var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("eventInfoContent").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+xmlhttp.open("GET","delete.php?q=" + primaryKey + "&q2=" + levelSet,true);
+
+  xmlhttp.send();
+}
+
+//deletes selected event via AJAX => cancel.php
 function cancelEvent() { 
  var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
@@ -253,6 +268,18 @@ xmlhttp.open("GET","cancel.php?q=" + primaryKey + "&q2=" + levelSet,true);
   xmlhttp.send();
 }
 
+function importantEvent() { 
+ var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("eventInfoContent").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+xmlhttp.open("GET","important.php?q=" + primaryKey + "&q2=" + levelSet,true);
+
+  xmlhttp.send();
+}
 function fillFields() {
 	document.getElementsByName("key")[0].value=primaryKey;
 	pullField("eventname", "eventname");
