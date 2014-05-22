@@ -209,22 +209,7 @@
 				</div>
 			</div><!-- /header -->
 			<div role="main" class="ui-content">
-				<script>
-	            $(function() {
-	                $("#modForm").on("submit", function(e) {
-	                    e.preventDefault();
-	                    $.ajax({
-	                        url: $(this).attr("action"),
-	                        type: 'POST',
-	                        data: $(this).serialize(),
-	                        success: function(data) {
-	                            $("#modResponse").html(data);
-	                            window.location.href = "#modifyPage";
-	                        }
-	                    });
-	                });
-	            });
-	        </script>
+				
 				<h1 align="center">Modify Event</h1>
 				<div id="modResponse"></div>
 				<form id="modForm" name="modForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/modify.php">
@@ -382,22 +367,7 @@
 					<a href="#schedule" id="scheduleButton" class=" ui-btn ui-btn-a ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Schedule</a>
 				</div>	
 			</div><!-- /header -->
-			 <script>
-	            $(function() {
-	                $("#addForm").on("submit", function(e) {
-	                    e.preventDefault();
-	                    $.ajax({
-	                        url: $(this).attr("action"),
-	                        type: 'POST',
-	                        data: $(this).serialize(),
-	                        success: function(data) {
-	                            $("#addResponse").html(data);
-	                            window.location.href = "#add";
-	                        }
-	                    });
-	                });
-	            });
-	        </script>
+			 
 			<div role="main" class="ui-content">
 				<div id="addResponse"></div>
 				<form id="addForm" name="addForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/add.php">

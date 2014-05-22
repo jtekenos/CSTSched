@@ -1,3 +1,4 @@
+src="http://code.jquery.com/jquery-1.9.1.js";
 function menuSelector(sourceId, destinationId) {
 	var clickedMenu = document.getElementById(sourceId).innerHTML;
 	var destinationMenu = document.getElementById(destinationId).innerHTML;
@@ -129,26 +130,6 @@ function getLevel(lvlId) {
 function getSet(setId) {
 	storeSet = document.getElementById(setId).value;
 	return storeSet;
-}
-
-// picks the current week to display a schedule for it (not currently used)
-function weekPicker() {
-	var today = new Date();
-	today = new Date(today.getTime() + (24 * 60 * 60 * 1000 * 0));//for testing different days
-	var dayofWeek = today.getDay();
-	if(dayofWeek <= 5) {
-		var i = 1 - dayofWeek
-	}
-	if(dayofWeek >= 6) {
-		var i = 8 - dayofWeek
-	}
-	var mon = new Date(today.getTime() + (24 * 60 * 60 * 1000 * i));
-	var tues = new Date(mon.getTime() + (24 * 60 * 60 * 1000 * 1));
-	var wed = new Date(mon.getTime() + (24 * 60 * 60 * 1000 * 2));
-	var thur = new Date(mon.getTime() + (24 * 60 * 60 * 1000 * 3));
-	var fri = new Date(mon.getTime() + (24 * 60 * 60 * 1000 * 4));
-	document.getElementById('x').innerHTML = "today is: " + today + "<br>" + mon +"<br>"
-	+ tues +"<br>"+ wed +"<br>"+ thur +"<br>"+ fri;
 }
 
 //displays the schedule for selected week and set Ajax => scheduleTable.php
@@ -355,3 +336,35 @@ var shake = (function () {
 
     return shake;
 })();
+
+//use ajax to submit modify and diplay a response from the server
+$(function() {
+	$("#modForm").on("submit", function(e) {
+		e.preventDefault();
+		$.ajax({
+		    url: $(this).attr("action"),
+		    type: 'POST',
+		    data: $(this).serialize(),
+		    success: function(data) {
+		        $("#modResponse").html(data);
+		        window.location.href = "#modifyPage";
+		    }
+		});
+	});
+});
+
+//use ajax to submit add form and diplay a response from the server
+$(function() {
+	$("#addForm").on("submit", function(e) {
+		e.preventDefault();
+		$.ajax({
+		    url: $(this).attr("action"),
+		    type: 'POST',
+		    data: $(this).serialize(),
+		    success: function(data) {
+		        $("#addResponse").html(data);
+		        window.location.href = "#add";
+		    }
+		});
+	});
+});
