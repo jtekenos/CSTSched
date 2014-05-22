@@ -14,8 +14,8 @@
 	
 
     if (isLoggedIn()){
-        echo "<div class=\"userHeaderDiv\"><a href=\"#profile\" id=\"UserHeaderButton\" class=\" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">" . $_SESSION["SESS_LOGIN_NAME"] . $_SESSION["SESS_levelAndSet"] .$_SESSION["SESS_admin"] . "</a></div>";
-        
+        echo "<a href=\"#add\" id=\"addButton\" class=\" ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Add</a>";
+        echo "<div class=\"userHeaderDiv\"><a href=\"#profile\" id=\"UserHeaderButton\" class=\" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">" . $_SESSION["SESS_LOGIN_NAME"] . $_SESSION["SESS_levelAndSet"] .$_SESSION["SESS_admin"] . "</a></div>";        
         echo '<div class="logoutUserInfo"><form method="link" action="logout.php">
             <input type="submit" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" value="Logout"></form></div>';   
   } else {
