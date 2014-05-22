@@ -276,6 +276,16 @@ label.error {
 	position: relative;
 }
 
+.filledCellImportant{
+	background-color: #FF9900;
+	vertical-align: text-top;
+	color: white;
+	font-size: 75%;
+	text-align: center;
+	width: 18%;
+	position: relative;
+}
+
 .emptyCell {
 	width: 18%;
 	height: 15px;

@@ -111,8 +111,20 @@ for ($row=0; $row<20; $row++) {
     $b = mysql_fetch_array($blk);
 	$spans = $b['timeBlocks'];
 
+	$blocks="SELECT * FROM $tbl_name WHERE timefrom = '$timeFrom' and level_id = '$levelSet' and event_date = '$week'";
+    $blk = mysql_query($blocks);
+    $b = mysql_fetch_array($blk);
+	$flag = $b['special'];
+
 if($spans != null) {
 	$cellClass = "filledCell";
+	if($flag == "c") {
+		$cellClass = "filledCellCancel";
+	}
+	else if($flag == "i"){
+		$cellClass = "filledCellImportant";
+	}
+	
 	if ($col == "1") {
 	  	$monSpan = $spans;
 	} elseif ($col == "2") {
@@ -138,9 +150,20 @@ if($curSpan < 1) {
 			// ORDER BY id DESC is order result by descending
 		$cellId = $rows['id'];
 		echo "<a href=\"#eventInfo\" onClick=\"detailsJs('$cellId')\"><span class=\"linkSpan\"></span></a>";
-		echo $timeFrom, " - ", $rows['timeto'], "<br>",
+		if($flag == "c") {
+			echo $timeFrom, " - ", $rows['timeto'], "<br>",
+			$rows['eventname'], "<br>",
+			"CANCELLED" ;
+		}
+		else {
+			echo $timeFrom, " - ", $rows['timeto'], "<br>",
 			$rows['eventname'], "<br>", 
-			$rows['location'];}
+			$rows['location'];
+		}
+		
+
+
+		}
 		
 	}
 	echo "</td>";
