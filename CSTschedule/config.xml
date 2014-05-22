@@ -15,6 +15,13 @@
         Austin Lott, Jonny Pearen, Soran Shim, Jessica Tekenos, Denis Turitsa
     </author>
 
+    <gap:platforms>
+    <gap:platform name="android" minVersion="2.1"/>
+    <gap:platform name="webos"/>
+    <gap:platform name="symbian.wrt"/>
+    <gap:platform name="blackberry" project="widgets"/>
+    </gap:platforms>
+
     <feature name="Accelerometer" required="true">
         <param name="android-package" value="org.apache.cordova.AccelListener" />
     </feature>
