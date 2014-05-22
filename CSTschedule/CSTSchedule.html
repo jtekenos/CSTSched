@@ -7,7 +7,6 @@
 			<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
 			<link rel="stylesheet" href="Style.css" />
-			<link rel="icon" type="image/png" href="icon.png" />
 			<style type="text/css">
 			@-moz-document url-prefix() {
 					.linkSpan {
@@ -60,7 +59,7 @@
 				    <button id="setO" class="ui-btn ui-btn-a" value="O" onClick="menuSelector('setO', 'setHeader'); getSet('setO'); collapseSet()">Set O</button>
 				    <button id="setQ" class="ui-btn ui-btn-a" value="Q" onClick="menuSelector('setQ', 'setHeader'); getSet('setQ'); collapseSet()">Set Q</button>
 				</div>
-				<a href="#schedule" onclick="tableSelector('current', 'tableHere'); getLoginInfo()"id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Get Schedule</a>
+				<a href="#schedule" onclick="tableSelector('current', 'tableHere'); uNameButtons()" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Get Schedule</a>
 				<div id="twitterFeedDiv">
 					<div id="twitterFeedWrapper">
 					<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/CSTSchedule" data-widget-id="467345651915694082" data-link-color="#CFCFD1" data-chrome="transparent" data-tweet-limit="5">Tweets by @CSTSchedule</a>
@@ -101,10 +100,12 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
+				<div class="userHeaderDiv">
+					<div id="testDivPlsIgnore"></div>
+				</div>
 				<div>
 					<a href="#add" id="addButton" class=" ui-btn ui-btn-aui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Add</a>
 				</div>	
-				<div id="loginInfoHere"></div>			
 			</div><!-- /header -->
 
 			<div role="main" id="scheduleContent" class="ui-content">
@@ -113,7 +114,7 @@
 
 				<a onClick="tableSelector('later', 'tableHere'); clearShakeData()" data-role="button" id="nextWeek" data-icon="arrow-r" data-iconpos="notext" data-form="ui-btn-up-a">Next</a>
 				<br>
-
+				
 				<script>					    
   					window.onload = function() {
    						window.addEventListener('shake', shakeEventDidOccur, false);
@@ -163,7 +164,9 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div id="loginInfoHere"></div>			
+				<div class="userHeaderDiv">
+					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
+				</div>
 			</div><!-- /header -->
 			<div role="main" class="ui-content">
 
@@ -183,7 +186,9 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div id="loginInfoHere"></div>			
+				<div class="userHeaderDiv">
+					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
+				</div>
 			</div><!-- /header -->
 			<div role="main" class="ui-content">
 				
@@ -340,7 +345,9 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div id="loginInfoHere"></div>							
+				<div class="userHeaderDiv">
+					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" >User1</a>
+				</div>
 				<div>
 					<a href="#schedule" id="scheduleButton" class=" ui-btn ui-btn-a ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Schedule</a>
 				</div>	
@@ -490,7 +497,9 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div id="loginInfoHere"></div>			
+				<div class="userHeaderDiv">
+					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User</a>
+				</div>
 			</div><!-- /header -->
 
 		<div role="main" class="ui-content">
@@ -527,52 +536,52 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home"/></a>
-				<div id="loginInfoHere"></div>			
-
+				<div class="userHeaderDiv">
+					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
+				</div>
 			</div><!-- /header -->
 
 			
 			<div role="main" class="ui-content">
 				<h1 align="center">User Registration</h1>
-				<a href="#index" id="changeScheduleButton" class="ui-btn ui-btn-aui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Back</a>
 				<script>
-            $(function() {
-                $("#registerFormID").on("submit", function(e) {
-                    e.preventDefault();
-                    $.ajax({
-                        url: $(this).attr("action"),
-                        type: 'POST',
-                        data: $(this).serialize(),
-                        success: function(data) {
-                            $("#RegResponseID").html(data);
-                        }
-                    });
-                });
-            });
-        </script>
+		            $(function() {
+		                $("#registerFormID").on("submit", function(e) {
+		                    e.preventDefault();
+		                    $.ajax({
+		                        url: $(this).attr("action"),
+		                        type: 'POST',
+		                        data: $(this).serialize(),
+		                        success: function(data) {
+		                            $("#RegResponseID").html(data);
+		                        }
+		                    });
+		                });
+		            });
+		        </script>
 
         <!-- An example of a form that gets submitted -->
     <div id="RegResponseID"></div>
        <form id="registerFormID" action="http://okoceanfisheries.host56.com/CSTschedule/register.php"> <!--action tells ajax which php file to use-->
             <input type="text" id="uName" name="uName" placeholder="User name" required>
-    <input type="email" id="txtEmail" name="email" placeholder="Email" required>
-    <input type="password" id="pwd" name="pwd" placeholder="Password" required>
-    <input type="password" id="confimPwd" name="confirmPwd" placeholder="Re-enter Password" required>
+		    <input type="email" id="txtEmail" name="email" placeholder="Email" required>
+		    <input type="password" id="pwd" name="pwd" placeholder="Password" required>
+		    <input type="password" id="confimPwd" name="confirmPwd" placeholder="Re-enter Password" required>
 
-    <select name= "level">
-            <option>Select Level</option>
-            <option value="1">Level 1</option>
-            <option value="2">Level 2</option>
-            <option value="3">Level 3</option>
-            <option value="4">Level 4</option>
-    </select>
-    <select name = "set">
-            <option>Select Set</option>
-            <option value="A">Set A</option>
-            <option value="B">Set B</option>
-            <option value="C">Set C</option>
-    </select>
-            <input type="submit" value="submit"/>
+		    <select name= "level">
+		            <option>Select Level</option>
+		            <option value="1">Level 1</option>
+		            <option value="2">Level 2</option>
+		            <option value="3">Level 3</option>
+		            <option value="4">Level 4</option>
+		    </select>
+		    <select name = "set">
+		            <option>Select Set</option>
+		            <option value="A">Set A</option>
+		            <option value="B">Set B</option>
+		            <option value="C">Set C</option>
+		    </select>
+            <input type="submit" value="Submit"/>
         </form>
 			</div><!-- /content -->
 		</div><!-- /page -->
@@ -582,7 +591,9 @@
 		<div id="profile" data-role="page">
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home"/></a>
-				<div id="loginInfoHere"></div>			
+				<div class="userHeaderDiv">
+					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
+				</div>	
 			</div><!-- /header -->
 
 			<div role="main" class="ui-content">
