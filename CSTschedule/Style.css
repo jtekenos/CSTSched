@@ -266,6 +266,16 @@ label.error {
 	position: relative;
 } 
 
+.filledCellCancel{
+	background-color: #FF5C5C;
+	vertical-align: text-top;
+	color: white;
+	font-size: 75%;
+	text-align: center;
+	width: 18%;
+	position: relative;
+}
+
 .emptyCell {
 	width: 18%;
 	height: 15px;
