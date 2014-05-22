@@ -51,7 +51,8 @@
 		});
 	</script>
 	<div id="RegisterButtonDiv">
-	<input id="LoginButton" class="button" type="submit" value="Login" name="Login">	
+	<input id="LoginButton" class="button" type="submit" value="Login" name="Login" data-icon="check">	
+	<input id="LoginButton" class="button" type="reset" value="Reset" name="Reset" data-icon="delete">	
 	</div>
 </form>
 </div><!-- /content -->
