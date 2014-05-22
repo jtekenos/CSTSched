@@ -12,15 +12,23 @@
 			//$admin=$_REQUEST['admin'];
 			//echo $admin;
 	
+	$loginName = $_SESSION["SESS_LOGIN_NAME"];
+	$userLevelSet = $_SESSION["SESS_levelAndSet"];
+	$admin = $_SESSION["SESS_admin"];
+	/*
+	echo "loginUserName says Hi";
 
+ */
     if (isLoggedIn()){
-        echo "<a href=\"#add\" id=\"addButton\" class=\" ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Add</a>";
-        echo "<div class=\"userHeaderDiv\"><a href=\"#profile\" id=\"UserHeaderButton\" class=\" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">" . $_SESSION["SESS_LOGIN_NAME"] . $_SESSION["SESS_levelAndSet"] .$_SESSION["SESS_admin"] . "</a></div>";        
-        echo '<div class="logoutUserInfo"><form method="link" action="logout.php">
-            <input type="submit" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" value="Logout"></form></div>';   
+        echo "<a href=\"#profile\" id=\"UserHeaderButton\" class=\" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">$loginName</a>";
+        	 
+        echo "<a href=\"#index\" id=\"UserHeaderButton\" onclick=\"logout()\" class=\" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Logout</a>";
+           
+         
   } else {
-        echo '<div id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop"><form method="link" action="login.php"></form></div>';
-        echo '<div id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop"><form method="link" action="register_page.php"></form></div>';
-        }   
+  	 echo "<a href=\"#loginPage\" id=\"UserHeaderButton\" class=\" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Login</a>";
 
+  	 echo "<a href=\"#registerPage\" id=\"UserHeaderButton\" class=\" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Register</a>";
+        }   
+ 
 ?>
