@@ -1,7 +1,5 @@
 <?php
-
-echo "<p>testing<p>";
-/* 
+ 
 	include 'functions.php';
 	require_once('config.php');
 	session_start();
@@ -24,5 +22,5 @@ echo "<p>testing<p>";
         echo '<div id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop"><form method="link" action="login.php"></form></div>';
         echo '<div id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop"><form method="link" action="register_page.php"></form></div>';
         }   
-        */
-?>   
+
+?>
