@@ -209,9 +209,25 @@
 				</div>
 			</div><!-- /header -->
 			<div role="main" class="ui-content">
-				
+				<script>
+	            $(function() {
+	                $("#modForm").on("submit", function(e) {
+	                    e.preventDefault();
+	                    $.ajax({
+	                        url: $(this).attr("action"),
+	                        type: 'POST',
+	                        data: $(this).serialize(),
+	                        success: function(data) {
+	                            $("#modResponse").html(data);
+	                            window.location.href = "#modifyPage";
+	                        }
+	                    });
+	                });
+	            });
+	        </script>
 				<h1 align="center">Modify Event</h1>
-				<form id="modForm" name="modForm" method="post" action="modify.php">
+				<div id="modResponse"></div>
+				<form id="modForm" name="modForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/modify.php">
 					<label for="addEventName" id="eventname"></label>
 					<input type="text" id="addEventName" name="addEventName" placeholder="Event Name">
 

@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="themes/BCITTheme.min.css" />
-		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
-			
-		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-		<script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
-		<script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
-		<script src="functions.js"></script> 
-		<meta charset="UTF-8">
-		<?php include "functions.php";?>
-		<title>Add Schedule</title>
-	</head>
-	<body>
-
 <?php
+include "functions.php";
 	//Start session
 	session_start();
-	
+
 	//Include database connection details
 	require_once('config.php');
 
@@ -32,14 +14,13 @@
 	$prof = mysqli_real_escape_string($con, $_POST['addProfName']);
 	$location = mysqli_real_escape_string($con, $_POST['addLocation']);
 	$eventType = mysqli_real_escape_string($con, $_POST['eventType']);
-	//$set = mysqli_real_escape_string($con, $_POST['selSet']);
 	$level = mysqli_real_escape_string($con, $_POST['selLevel']);
 	$startTime = mysqli_real_escape_string($con, $_POST['selStartTime']);
 	$endTime = mysqli_real_escape_string($con, $_POST['selEndTime']);
 	$date = mysqli_real_escape_string($con, $_POST['date']);
+	
 	$tableName = "schdule1";
-		//$tableName = "set" . $level . $set;
-	$tBlocks = "2";
+
 
 
 
@@ -74,9 +55,9 @@ while($row = mysqli_fetch_array($result)) {
 	if ($prof == '') {
 		$prof = $Oldprof;
 	}
-	if ($level == "noLvl" or empty($_POST['checkboxSet'])) {
+	//if ($level == "noLvl" or empty($_POST['checkboxSet'])) {
 		$levelSet = $OldlevelSet;
-	}
+	//}
 	if ($eventType == '') {
 		$eventType = $OldeventType;
 	}
@@ -84,32 +65,61 @@ while($row = mysqli_fetch_array($result)) {
 		$date = $Olddate;
 	}
 
-
-mysqli_query($con,"UPDATE $tableName SET eventname=$event, location=$location, timefrom=$startTime, timeto=$endTime,
-	instructor=$prof, level_id=$levelSet, comments=$eventType, event_date=$date
-	WHERE id='$primaryKey'");
+$startTBlock = tBlockConverter($startTime);
+$tBlocks = tBlockConverter($endTime) - $startTBlock;
 
 
-echo "event: $event <br>
-	location: $location <br>
-	startTime: $startTime <br>
-	endTime: $endTime <br>
-	prof: $prof <br>
-	level: $level <br>
-	comments: $eventType <br>
-	event: $event <br>
-	date: $date <br>";
-//mysqli_query($con,"UPDATE $tableName SET event_date = '$date'	WHERE id = '$primaryKey'");
+$usedBlockArray = array();
+$index = 0;
+for($i=$tBlocks-1; $i>=0; $i--){
+  	$usedBlock = $startTBlock + $i;
+  	$usedBlockArray[$index] = $usedBlock;
+  	$index++;
+  }
 
-echo "<h2>Entry Added</h2>
-	<a href=\"CSTScheduleDenis.html#schedule\" onClick=\"tableSelectorDate('tableHere')\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">schedule</a>";
+$passed = 1;
 
-echo "<a href=\"CSTScheduleDenis.html#modifyPage\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">back</a>";
+if($tBlocks < 1) {
+	echo "<h3>Please select a valid time<h3>";
+	$passed = 0;
+} 
 
+$result = mysqli_query($con,"SELECT * FROM schdule1 WHERE event_date = '$date' AND level_id = '$levelSet' AND id <> '$primaryKey'");
+while($row = mysqli_fetch_array($result)) {
+	$oldStartTBlock = tBlockConverter($row['timefrom']);
+	$oldEndTBlock = tBlockConverter($row['timeto']);
+	$oldtBlocks = $oldEndTBlock - $oldStartTBlock;
+
+	for($i=$oldtBlocks-1; $i>=0; $i--){
+		$oldUsedBlock = $oldStartTBlock + $i;
+
+		foreach ($usedBlockArray as $value) {
+		  	if($oldUsedBlock == $value) {
+		  		$passed = 2;
+		  	}
+		}
+	}
+}
+
+
+if($passed == 2) {
+ echo "<h3>please pick another time<h3>";
+}
+
+if($passed == 1) {
+	mysqli_query($con,"UPDATE $tableName SET eventname = '$event', location = '$location', timefrom = '$startTime', timeto = '$endTime',
+		instructor = '$prof', level_id = '$levelSet', comments = '$eventType', event_date = '$date', timeBlocks = '$tBlocks' 
+		WHERE id='$primaryKey'");
+}
+
+
+
+
+if($passed == 1) {
+	echo "<h2>Entry Modified</h2>
+		<a href=\"CSTScheduleDenis.html#schedule\" onClick=\"tableSelectorDate('tableHere')\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Back to Schedule</a>";
+}
 
 	mysqli_close($con);
 
 ?>
-
-</body>
-</html>
