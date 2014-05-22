@@ -1,4 +1,4 @@
-src="http://code.jquery.com/jquery-1.9.1.js";
+//src="http://code.jquery.com/jquery-1.9.1.js";
 function menuSelector(sourceId, destinationId) {
 	var clickedMenu = document.getElementById(sourceId).innerHTML;
 	var destinationMenu = document.getElementById(destinationId).innerHTML;
