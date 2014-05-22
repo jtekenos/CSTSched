@@ -58,8 +58,8 @@
 			//$_SESSION['SESS_LAST_NAME'] = $member['lastname'];
 			$_SESSION['SESS_LOGIN_NAME'] = $member['username'];
 			session_write_close();
-			echo "Welcome", $_SESSION['SESS_LOGIN_NAME'], "<br>
-			<a href=\"CSTSchedule.html\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Back</a>";
+			echo "Welcome ", $_SESSION['SESS_LOGIN_NAME'], "<br>";
+			
 			exit();
 		}else {
 			//Login failed

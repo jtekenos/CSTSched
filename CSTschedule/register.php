@@ -5,11 +5,7 @@
 	//Include database connection details
 	require_once('config.php');
 
-	//Array to store validation errors
-	$errmsg_arr = array();
 	
-	//Validation error flag
-	$errflag = false;
 	
 	//Connect to mysql server
 	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
@@ -39,46 +35,39 @@
 	$email = clean($_POST['email']);
 	$set = clean($_POST['set']);
 	$level = clean($_POST['level']);
-	$slideremail = clean($_POST['slideremail']);
-	$slidersms = clean($_POST['slidersms']);
 	
 	//Input Validations
+
+	$errflag = false;
 	if($login == '') {
-		$errmsg_arr[] = 'User name missing';
+		echo "User name missing";
 		$errflag = true;
 	}
 	if($password == '') {
-		$errmsg_arr[] = 'Password missing';
+		echo "Password missing";
 		$errflag = true;
 	}
 	if($cpassword == '') {
-		$errmsg_arr[] = 'Confirm password missing';
+		echo "Confirm password missing";
 		$errflag = true;
 	}
 	if( strcmp($password, $cpassword) != 0 ) {
-		$errmsg_arr[] = 'Passwords do not match';
+		echo "Passwords do not match";
 		$errflag = true;
 	}
 	if($email == '') {
-		$errmsg_arr[] = 'Email missing';
+		echo "Email missing";
 		$errflag = true;
 	}
 	if($set == '') {
-		$errmsg_arr[] = 'Set missing';
+		echo "Set missing";
 		$errflag = true;
 	}
 	if($level == '') {
-		$errmsg_arr[] = 'Set missing';
+		echo "Level missing";
 		$errflag = true;
 	}
-	if($slideremail == '') {
-		$errmsg_arr[] = 'Set missing';
-		$errflag = true;
-	}
-	if($slidersms == '') {
-		$errmsg_arr[] = 'Set missing';
-		$errflag = true;
-	}
+
 	
 	//Check for duplicate login ID
 	if($login != '') {
@@ -86,7 +75,7 @@
 		$result = mysql_query($qry);
 		if($result) {
 			if(mysql_num_rows($result) > 0) {
-				$errmsg_arr[] = 'User name already in use';
+				echo "User name already in use";
 				$errflag = true;
 			}
 			@mysql_free_result($result);
@@ -97,20 +86,18 @@
 	}
 	
 	//If there are input validations, redirect back to the registration form
-	if($errflag) {
-		$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-		session_write_close();
-		header("location: registerForm.php");
-		exit();
-	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO accounts(username, levelAndSet, email, password, notifyEmail, notifySMS) VALUES('$login','$level$set', '$email','$password','$slideremail','$slidersms')";
+	if($errflag == false) {
+		$qry = "INSERT INTO accounts(username, levelAndSet, email, password, notifyEmail, notifySMS) VALUES('$login','$level$set', '$email','$password','$slideremail','$slidersms')";
+		echo "registration successful";
 	$result = mysql_query($qry);
+	}
+	
 	
 	//Check whether the query was successful or not
 	if($result) {
-		header("location: CSTSchedule.html?login=".$login."&password=".$password);
+		
 		exit();
 	}else {
 		die("Query failed");
