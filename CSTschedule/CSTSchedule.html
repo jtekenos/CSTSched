@@ -289,23 +289,7 @@
 						<input type="checkbox" name="checkboxSet" id="checkbox-9" value="setQ">
 			    		</fieldset>
 					</div>
-					<div id="addEventNotification">
-						<br>
-						<label for="notifySlider1">Notify by email:</label>
-						<div class="sliderDiv">
-							<select name="slider" id="notifySlider1" data-role="slider">
-								<option value="yes">No</option>
-								<option value="no">Yes</option>
-							</select> 
-						</div>
-						<label for="notifySlider1">Notify by SMS:</label>
-						<div class="sliderDiv">
-							<select name="slider" id="notifySlider2" data-role="slider">
-								<option value="yes">No</option>
-								<option value="no">Yes</option>
-							</select> 
-						</div>
-					</div>
+					
 					</div>
 					<div id="timeButtons">
 						<select name="selStartTime" size="1">
@@ -382,9 +366,25 @@
 					<a href="#schedule" id="scheduleButton" class=" ui-btn ui-btn-a ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Schedule</a>
 				</div>	
 			</div><!-- /header -->
-
+			 <script>
+	            $(function() {
+	                $("#addForm").on("submit", function(e) {
+	                    e.preventDefault();
+	                    $.ajax({
+	                        url: $(this).attr("action"),
+	                        type: 'POST',
+	                        data: $(this).serialize(),
+	                        success: function(data) {
+	                            $("#addResponse").html(data);
+	                            window.location.href = "#add";
+	                        }
+	                    });
+	                });
+	            });
+	        </script>
 			<div role="main" class="ui-content">
-				<form id="addForm" name="addForm" method="post" action="add.php">
+				<div id="addResponse"></div>
+				<form id="addForm" name="addForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/add.php">
 					<input type="text" id="addEventName" name="addEventName" placeholder="Event Name">
 					<input type="text" id="addProfName" name="addProfName" placeholder="Instructor Name">
 					<input type="text" id="addLocation" name="addLocation" placeholder="Location">
@@ -457,23 +457,7 @@
 						<input type="checkbox" name="checkboxSet[]" id="checkbox-9" value="setQ">
 			    		</fieldset>
 					</div>
-					<div id="addEventNotification">
-						<br>
-						<label for="notifySlider1">Notify by email:</label>
-						<div class="sliderDiv">
-							<select name="slider" id="notifySlider1" data-role="slider">
-								<option value="yes">No</option>
-								<option value="no">Yes</option>
-							</select> 
-						</div>
-						<label for="notifySlider1">Notify by SMS:</label>
-						<div class="sliderDiv">
-							<select name="slider" id="notifySlider2" data-role="slider">
-								<option value="yes">No</option>
-								<option value="no">Yes</option>
-							</select> 
-						</div>
-					</div>
+					
 					</div>
 
 					<div id="timeButtons">
@@ -532,8 +516,8 @@
 						<br><br>
 						<input class="button" type="submit" value="Add" name="Add" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
 						<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
-				
 				</form>
+				
 			</div><!-- /content -->
 		</div><!-- /page -->
 
@@ -558,6 +542,7 @@
 					<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
 					</div>
 				</form>
+
 			</div><!-- /content -->
 		</div><!-- /page -->
 

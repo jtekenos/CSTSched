@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="themes/BCITTheme.min.css" />
-		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
-			
-		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-		<script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
-		<script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
-		<script src="functions.js"></script> 
-		<meta charset="UTF-8">
-		<?php include "functions.php";?>
-		<title>Add Schedule</title>
-	</head>
-	<body>
-
 <?php
+
+	include "functions.php";
+
 	//Start session
 	session_start();
+
 	
 	//Include database connection details
 	require_once('config.php');
@@ -34,7 +19,6 @@ $event = mysqli_real_escape_string($con, $_POST['addEventName']);
 $prof = mysqli_real_escape_string($con, $_POST['addProfName']);
 $location = mysqli_real_escape_string($con, $_POST['addLocation']);
 $eventType = mysqli_real_escape_string($con, $_POST['eventType']);
-//$set = mysqli_real_escape_string($con, $_POST['selSet']);
 $level = mysqli_real_escape_string($con, $_POST['selLevel2']);
 $startTime = mysqli_real_escape_string($con, $_POST['selStartTime']);
 $endTime = mysqli_real_escape_string($con, $_POST['selEndTime']);
@@ -42,9 +26,11 @@ $date = mysqli_real_escape_string($con, $_POST['date']);
 
 $levelSet = $level . $set;
 
+//calculates number of timeblocks used
 $startTBlock = tBlockConverter($startTime);
 $tBlocks = tBlockConverter($endTime) - $startTBlock;
 
+//makes an array of the used timeblocks
 $usedBlockArray = array();
 $index = 0;
 for($i=$tBlocks-1; $i>=0; $i--){
@@ -53,6 +39,7 @@ for($i=$tBlocks-1; $i>=0; $i--){
   	$index++;
   }
 
+//server side valdiation
 $passed = 1;
 if($tBlocks < 1) {
 	echo "<h3>Please select a valid time<h3>";
@@ -75,7 +62,7 @@ if($date == "") {
 	$passed = 0;
 }
 
-
+//checks if the timeslots to be used conflict with already scheduled events
 if(!empty($_POST['checkboxSet'])) {
     foreach($_POST['checkboxSet'] as $check) {
     	$checkedSet =  substr($check,3,4);
@@ -104,6 +91,7 @@ if($passed == 2) {
  echo "<h3>please pick another time<h3>";
 }
 
+//if all validation is passed adds entry into database for each set selected
 if($passed == 1) {
 	foreach($_POST['checkboxSet'] as $check) {
     	$checkedSet =  substr($check,3,4);
@@ -119,12 +107,7 @@ if($passed == 1) {
 
 if($passed == 1) {
 	echo "<h2>Entry Added</h2>
-		<a href=\"CSTScheduleDenis.html#schedule\" onClick=\"tableSelectorDate('tableHere')\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">schedule</a>";
+		<a href=\"CSTScheduleDenis.html#schedule\" onClick=\"tableSelectorDate('tableHere')\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Back to Schedule</a>";
 }
-
-echo "<a href=\"CSTScheduleDenis.html#add\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">back</a>";
-
 mysqli_close($con);
 ?>
-</body>
-</html>
