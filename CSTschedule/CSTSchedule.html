@@ -174,8 +174,8 @@
 				<div id="eventInfoButtons">
 					<a href="#modifyPage "onclick="fillFields()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Modify class</a>
 					<a onclick="deleteEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Delete class</a>
-					<a onclick="cancelEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Cancel class</a>
-					<a onclick="importantEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Mark as important</a>
+					<a onclick="cancelEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Mark as Cancelled</a>
+					<a onclick="importantEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Mark as Important</a>
 					<a href="#schedule" onclick="tableSelectorDate('tableHere')" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Back</a>
 				</div>
 			</div><!-- /content -->
@@ -275,6 +275,7 @@
 					
 					</div>
 					<div id="timeButtons">
+						<label for="selStartTime" id="timefrom"></label>
 						<select name="selStartTime" size="1">
 						<option value="">Select Start Time</option>
 						  <option value="8:00">8:00</option>
@@ -299,6 +300,8 @@
 						  <option value="17:30">17:30</option>
 						  
 						</select>
+
+						<label for="selEndTime" id="timeto"></label>
 						<select name="selEndTime" size="1">
 						<option value="">Select End Time</option>
 						  <option value="8:00">8:00</option>
@@ -324,7 +327,7 @@
 						</select>
 					</div>
 
-
+					<label for="date" id="event_date"></label>
 					<input type="date" name="date">
 					<input type="text" name="eventType" placeholder="Comments">
 					
