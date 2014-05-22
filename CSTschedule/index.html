@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
 			<link rel="stylesheet" href="themes/BCITTheme.min.css" />
 			<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
@@ -60,7 +61,7 @@
 				<a href="#schedule" onclick="tableSelector('current', 'tableHere')"id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Get Schedule</a>
 				<div id="twitterFeedDiv">
 					<div id="twitterFeedWrapper">
-					<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/CSTSchedule" data-widget-id="467345651915694082" data-chrome="transparent" data-tweet-limit="5">Tweets by @CSTSchedule</a>
+					<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/CSTSchedule" data-widget-id="467345651915694082" data-link-color="#CFCFD1" data-chrome="transparent" data-tweet-limit="5">Tweets by @CSTSchedule</a>
 					<script>
 						!function(d,s,id) {
 							var js,fjs=d.getElementsByTagName(s)[0],
@@ -79,14 +80,14 @@
 			<br>
 			<br>
 			<br>
-			<div id="indexFooter" data-role="footer">
+			<div id="footer" data-role="footer">
 
 				<div class="footerButtons">
 					<div id="loginButtonDiv">
-					<a href="LoginForm.php" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Login</a>
+					<a href="LoginForm.php" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" data-ajax="false">Login</a>
 					</div>
 					<div id="registerButtonDiv2">
-					<a href="registerForm.php" id="RegisterButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Register</a>
+					<a href="registerForm.php" id="RegisterButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" data-ajax="false">Register</a>
 					</div>
 
 				</div>
@@ -108,10 +109,35 @@
 
 			<div role="main" id="scheduleContent" class="ui-content">
 
-				<a onClick="tableSelector('earlier', 'tableHere')" data-role="button" id="previousWeek" data-icon="arrow-l" data-iconpos="notext" data-form="ui-btn-up-a">Previous</a>
+				<a onClick="tableSelector('earlier', 'tableHere'); clearShakeData()" data-role="button" id="previousWeek" data-icon="arrow-l" data-iconpos="notext" data-form="ui-btn-up-a">Previous</a>
 
-				<a onClick="tableSelector('later', 'tableHere')" data-role="button" id="nextWeek" data-icon="arrow-r" data-iconpos="notext" data-form="ui-btn-up-a">Next</a>
-				<br />
+				<a onClick="tableSelector('later', 'tableHere'); clearShakeData()" data-role="button" id="nextWeek" data-icon="arrow-r" data-iconpos="notext" data-form="ui-btn-up-a">Next</a>
+				<br>
+
+				<script>					    
+    				// Wait for Cordova to connect with the device 
+    				document.addEventListener("deviceready",onDeviceReady,false);
+
+    				// Cordova is ready to be used!
+				    function onDeviceReady() {
+				    	var element = document.getElementById('deviceIsReady');
+				    	element.innerHTML = 'Shake to return to current week';
+				    	shake.startWatch(onDetected);
+				    }
+
+  					function onDetected() {
+    					tableSelector('current', 'tableHere');
+  					}
+
+  					function clearShakeData(){
+    					document.getElementById('shakeData').innerHTML = '';
+  					}
+
+   				 </script>
+
+  					<div id="deviceIsReady">Loading...</div>
+   					 <p id="shakeData"></p>
+
 
 				<div id="tableHere"></div>
 
@@ -163,12 +189,13 @@
 			<div role="main" class="ui-content">
 
 				<p id="eventInfoContent" align="center">Additional class info loading...</p>
-				<a href="#modifyPage "onclick="fillFields()"
-				 id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Modify class</a>
-				<br>
-				<a onclick="deleteEvent()" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Delete class</a>
-				<br>
-				<a href="#schedule" onclick="tableSelectorDate('tableHere')" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Back</a>
+				<div id="eventInfoButtons">
+					<a href="#modifyPage "onclick="fillFields()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Modify class</a>
+					<a onclick="deleteEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Delete class</a>
+					<a onclick="cancelEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Cancel class</a>
+					<a onclick="importantEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Mark as important</a>
+					<a href="#schedule" onclick="tableSelectorDate('tableHere')" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Back</a>
+				</div>
 			</div><!-- /content -->
 		</div><!-- /page -->
 
@@ -184,7 +211,8 @@
 			<div role="main" class="ui-content">
 				
 				<h1 align="center">Modify Event</h1>
-				<form id="modForm" name="modForm" method="post" action="modify.php">
+				<div id="modResponse"></div>
+				<form id="modForm" name="modForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/modify.php">
 					<label for="addEventName" id="eventname"></label>
 					<input type="text" id="addEventName" name="addEventName" placeholder="Event Name">
 
@@ -204,7 +232,11 @@
 
 					<div id="setAndNotificationDiv">
 					<div id="setCheckboxLvl0" data-role="fieldcontain">
-						Please select level first
+			 			<fieldset data-role="controlgroup">
+						<legend>Set (select all that apply)</legend>
+						<label for="checkbox-1">Please Select Level First</label>
+						<input type="checkbox" name="checkboxSet" id="checkbox-1">
+			    		</fieldset>
 					</div>
 					<div id="setCheckboxLvl1" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
@@ -258,23 +290,7 @@
 						<input type="checkbox" name="checkboxSet" id="checkbox-9" value="setQ">
 			    		</fieldset>
 					</div>
-					<div id="addEventNotification">
-						<br>
-						<label for="notifySlider1">Notify by email:</label>
-						<div class="sliderDiv">
-							<select name="slider" id="notifySlider1" data-role="slider">
-								<option value="yes">No</option>
-								<option value="no">Yes</option>
-							</select> 
-						</div>
-						<label for="notifySlider1">Notify by SMS:</label>
-						<div class="sliderDiv">
-							<select name="slider" id="notifySlider2" data-role="slider">
-								<option value="yes">No</option>
-								<option value="no">Yes</option>
-							</select> 
-						</div>
-					</div>
+					
 					</div>
 					<div id="timeButtons">
 						<select name="selStartTime" size="1">
@@ -351,9 +367,10 @@
 					<a href="#schedule" id="scheduleButton" class=" ui-btn ui-btn-a ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Schedule</a>
 				</div>	
 			</div><!-- /header -->
-
+			 
 			<div role="main" class="ui-content">
-				<form id="addForm" name="addForm" method="post" action="add.php">
+				<div id="addResponse"></div>
+				<form id="addForm" name="addForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/add.php">
 					<input type="text" id="addEventName" name="addEventName" placeholder="Event Name">
 					<input type="text" id="addProfName" name="addProfName" placeholder="Instructor Name">
 					<input type="text" id="addLocation" name="addLocation" placeholder="Location">
@@ -368,7 +385,11 @@
 
 					<div id="setAndNotificationDiv">
 					<div id="setCheckboxLvl0_2" data-role="fieldcontain">
-							Please select level first
+			 			<fieldset data-role="controlgroup">
+						<legend>Set (select all that apply)</legend>
+						<label for="checkbox-1">Please Select Level First</label>
+						<input type="checkbox" name="checkboxSet" id="checkbox-1">
+			    		</fieldset>
 					</div>
 					<div id="setCheckboxLvl1_2" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
@@ -422,23 +443,7 @@
 						<input type="checkbox" name="checkboxSet[]" id="checkbox-9" value="setQ">
 			    		</fieldset>
 					</div>
-					<div id="addEventNotification">
-						<br>
-						<label for="notifySlider1">Notify by email:</label>
-						<div class="sliderDiv">
-							<select name="slider" id="notifySlider1" data-role="slider">
-								<option value="yes">No</option>
-								<option value="no">Yes</option>
-							</select> 
-						</div>
-						<label for="notifySlider1">Notify by SMS:</label>
-						<div class="sliderDiv">
-							<select name="slider" id="notifySlider2" data-role="slider">
-								<option value="yes">No</option>
-								<option value="no">Yes</option>
-							</select> 
-						</div>
-					</div>
+					
 					</div>
 
 					<div id="timeButtons">
@@ -497,8 +502,8 @@
 						<br><br>
 						<input class="button" type="submit" value="Add" name="Add" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
 						<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
-				
 				</form>
+				
 			</div><!-- /content -->
 		</div><!-- /page -->
 
@@ -523,6 +528,7 @@
 					<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
 					</div>
 				</form>
+
 			</div><!-- /content -->
 		</div><!-- /page -->
 
