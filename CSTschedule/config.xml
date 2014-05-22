@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns= "http://www.w3.org/ns/widgets"
+        xmlns:gap= "http://phonegap.com/ns/1.0"
+        id= "com.group22.cstschedule"
+        versionCode= "10" 
+        version= "1.0.0" >
+
+    <name>CSTSchedule</name>
+
+    <description>
+        A Timetable application for BCIT CST students.
+    </description>
+
+    <author href="https://cstschedule.com" email="admin@cstschedule.com">
+        Austin Lott, Jonny Pearen, Soran Shim, Jessica Tekenos, Denis Turitsa
+    </author>
+
+    <!--Core Plugins-->
+    <gap:plugin name="org.apache.cordova.device-motion"/>
+    <gap:plugin name="org.apache.cordova.vibration" version="0.3.7" />
+
+    <icon src="icon.png" />
+
+</widget>
