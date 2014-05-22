@@ -173,10 +173,10 @@ function tableSelector(direction, tableId) {
   }
 
 if(direction == "current") {
-	xmlhttp.open("GET","scheduleTable.php?q1=&q2=" + levelSet,true);
+	xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/scheduleTable.php?q1=&q2=" + levelSet,true);
 }
 else {
-	xmlhttp.open("GET","scheduleTable.php?q1=" + numDate  + "&q2=" + levelSet, true);
+	xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/scheduleTable.php?q1=" + numDate  + "&q2=" + levelSet, true);
 }
   
   xmlhttp.send();
@@ -203,7 +203,7 @@ function tableSelectorDate(tableId) {
 	    }
 	  }
 
-	xmlhttp.open("GET","scheduleTable.php?q1=" + numDate  + "&q2=" + levelSet, true);
+	xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/scheduleTable.php?q1=" + numDate  + "&q2=" + levelSet, true);
 
   
   xmlhttp.send(); 
@@ -221,7 +221,7 @@ function detailsJs(sourceId) {
       document.getElementById("eventInfoContent").innerHTML=xmlhttp.responseText;
     }
   }
-	xmlhttp.open("GET","eventDetails.php?q1="+primaryKey + "&q2=" + field +
+	xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/eventDetails.php?q1="+primaryKey + "&q2=" + field +
 		"&q3=" + levelSet, true);
 	xmlhttp.send();
 }
@@ -235,7 +235,7 @@ function pullField(dataField, destinationId) {
       document.getElementById(destinationId).innerHTML=xmlhttp.responseText;
     }
   }
-	xmlhttp.open("GET","eventDetails.php?q1="+primaryKey + "&q2=" + 
+	xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/eventDetails.php?q1="+primaryKey + "&q2=" + 
 		field + "&q3=" + levelSet,true);
 	xmlhttp.send();
 }
@@ -249,7 +249,7 @@ function deleteEvent() {
     }
   }
 
-xmlhttp.open("GET","delete.php?q=" + primaryKey + "&q2=" + levelSet,true);
+xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/delete.php?q=" + primaryKey + "&q2=" + levelSet,true);
 
   xmlhttp.send();
 }
@@ -263,7 +263,7 @@ function cancelEvent() {
     }
   }
 
-xmlhttp.open("GET","cancel.php?q=" + primaryKey + "&q2=" + levelSet,true);
+xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/cancel.php?q=" + primaryKey + "&q2=" + levelSet,true);
 
   xmlhttp.send();
 }
