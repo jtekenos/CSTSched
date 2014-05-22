@@ -5,22 +5,19 @@
 	//Include database connection details
 	require_once('config.php');
 	
-	//Array to store validation errors
-	$errmsg_arr = array();
-	
 	//Validation error flag
 	$errflag = false;
 	
 	//Connect to mysql server
 	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
 	if(!$link) {
-		die('Failed to connect to server: ' . mysql_error());
+		//die('Failed to connect to server: ' . mysql_error());
 	}
 	
 	//Select database
 	$db = mysql_select_db(DB_DATABASE);
 	if(!$db) {
-		die("Unable to select database");
+		echo "Unable to select database<br>";
 	}
 	
 	//Function to sanitize values received from the form. Prevents SQL injection
@@ -33,25 +30,17 @@
 	}
 	
 	//Sanitize the REQUEST values - parameters may come from GET or POST
-	$login = clean($_REQUEST['username']);
-	$password = clean($_REQUEST['password']);
+	$login = clean($_POST['username']);
+	$password = clean($_POST['password']);
 	
 	//Input Validations
 	if($login == '') {
-		$errmsg_arr[] = 'Login ID missing';
+		echo "Login ID missing<br>";
 		$errflag = true;
 	}
 	if($password == '') {
-		$errmsg_arr[] = 'Password missing';
+		echo "Password missing<br>";
 		$errflag = true;
-	}
-	
-	//If there are input validations, redirect back to the login form
-	if($errflag) {
-		$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-		session_write_close();
-		header("location: LoginForm.php");
-		exit();
 	}
 	
 	//Create query
@@ -69,16 +58,14 @@
 			//$_SESSION['SESS_LAST_NAME'] = $member['lastname'];
 			$_SESSION['SESS_LOGIN_NAME'] = $member['username'];
 			session_write_close();
-			header("location: CSTScheduleS.html");
+			echo "Welcome", $_SESSION['SESS_LOGIN_NAME'], "<br>
+			<a href=\"CSTSchedule.html\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Back</a>";
 			exit();
 		}else {
 			//Login failed
-			$errmsg_arr[] = 'Login failed';
-			$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-			header("location: LoginForm.php");
-			exit();
+			echo "Login failed";
 		}
 	}else {
-		die("Query failed");
+	//	die("Query failed");
 	}
 ?>
