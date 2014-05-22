@@ -1,4 +1,3 @@
-<?php include "login.php";?>
 <?php
 	//Start session
 	session_start();
@@ -24,15 +23,6 @@
 		die("Unable to select database");
 	}
 	
-	//Function to sanitize values received from the form. Prevents SQL injection
-	function clean($str) {
-		$str = @trim($str);
-		if(get_magic_quotes_gpc()) {
-			$str = stripslashes($str);
-		}
-		return mysql_real_escape_string($str);
-	}
-	
 	//Sanitize the REQUEST values - parameters may come from GET or POST
 	$login = clean($_REQUEST['username']);
 	$password = clean($_REQUEST['password']);
@@ -51,7 +41,7 @@
 	if($errflag) {
 		$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
 		session_write_close();
-		header("location: LoginForm.php");
+		header("location: LoginFormSoran.php");
 		exit();
 	}
 	
@@ -70,13 +60,13 @@
 			$_SESSION['SESS_admin'] = $member['admin'];
 			$_SESSION['SESS_LOGIN_NAME'] = $member['username'];
 			session_write_close();
-			header("location: CSTScheduleS.html");
+			header("location: CSTScheduleSoran.html");
 			exit();
 		}else {
 			//Login failed
 			$errmsg_arr[] = 'Login failed';
 			$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-			header("location: LoginForm.php");
+			header("location: LoginFormSoran.php");
 			exit();
 		}
 	}else {
