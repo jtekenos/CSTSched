@@ -109,21 +109,35 @@
 
 			<div role="main" id="scheduleContent" class="ui-content">
 
-				<a onClick="tableSelector('earlier', 'tableHere')" data-role="button" id="previousWeek" data-icon="arrow-l" data-iconpos="notext" data-form="ui-btn-up-a">Previous</a>
+				<a onClick="tableSelector('earlier', 'tableHere'); clearShakeData()" data-role="button" id="previousWeek" data-icon="arrow-l" data-iconpos="notext" data-form="ui-btn-up-a">Previous</a>
 
-				<a onClick="tableSelector('later', 'tableHere')" data-role="button" id="nextWeek" data-icon="arrow-r" data-iconpos="notext" data-form="ui-btn-up-a">Next</a>
+				<a onClick="tableSelector('later', 'tableHere'); clearShakeData()" data-role="button" id="nextWeek" data-icon="arrow-r" data-iconpos="notext" data-form="ui-btn-up-a">Next</a>
 				<br>
 
-				<script>
-					window.onload = function() {
- 						window.addEventListener('shake', shakeEventDidOccur, false);
-  						//define a custom method to fire when shake occurs.
-  						function shakeEventDidOccur () {
-  							alert("worked!");
- 							tableSelector('current', 'tableHere');
-  						}
-					};
-				</script>
+				<script>					    
+    				// Wait for Cordova to connect with the device 
+    				document.addEventListener("deviceready",onDeviceReady,false);
+
+    				// Cordova is ready to be used!
+				    function onDeviceReady() {
+				    	var element = document.getElementById('deviceIsReady');
+				    	element.innerHTML = 'Shake to return to current week';
+				    	shake.startWatch(onDetected);
+				    }
+
+  					function onDetected() {
+    					tableSelector('current', 'tableHere');
+  					}
+
+  					function clearShakeData(){
+    					document.getElementById('shakeData').innerHTML = '';
+  					}
+
+   				 </script>
+
+  					<div id="deviceIsReady">Loading...</div>
+   					 <p id="shakeData"></p>
+
 
 				<div id="tableHere"></div>
 
