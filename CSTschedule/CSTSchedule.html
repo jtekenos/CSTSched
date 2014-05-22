@@ -61,7 +61,7 @@
 				<a href="#schedule" onclick="tableSelector('current', 'tableHere')"id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Get Schedule</a>
 				<div id="twitterFeedDiv">
 					<div id="twitterFeedWrapper">
-					<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/CSTSchedule" data-widget-id="467345651915694082" data-chrome="transparent" data-tweet-limit="5">Tweets by @CSTSchedule</a>
+					<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/CSTSchedule" data-widget-id="467345651915694082" data-link-color="#CFCFD1" data-chrome="transparent" data-tweet-limit="5">Tweets by @CSTSchedule</a>
 					<script>
 						!function(d,s,id) {
 							var js,fjs=d.getElementsByTagName(s)[0],
@@ -175,11 +175,13 @@
 			<div role="main" class="ui-content">
 
 				<p id="eventInfoContent" align="center">Additional class info loading...</p>
-				<a href="#modifyPage "onclick="fillFields()" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Modify class</a>
-				<a onclick="deleteEvent()" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Delete class</a>
-				<a onclick="cancelEvent()" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Cancel class</a>
-				<a onclick="importantEvent()" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Mark as important</a>
-				<a href="#schedule" onclick="tableSelectorDate('tableHere')" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Back</a>
+				<div id="eventInfoButtons">
+					<a href="#modifyPage "onclick="fillFields()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Modify class</a>
+					<a onclick="deleteEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Delete class</a>
+					<a onclick="cancelEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Cancel class</a>
+					<a onclick="importantEvent()" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Mark as important</a>
+					<a href="#schedule" onclick="tableSelectorDate('tableHere')" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Back</a>
+				</div>
 			</div><!-- /content -->
 		</div><!-- /page -->
 
