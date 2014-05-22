@@ -15,7 +15,12 @@
         Austin Lott, Jonny Pearen, Soran Shim, Jessica Tekenos, Denis Turitsa
     </author>
 
+    <feature name="Accelerometer" required="true">
+        <param name="android-package" value="org.apache.cordova.AccelListener" />
+    </feature>
+
     <!--Core Plugins-->
+    <gap:plugin name="org.apache.cordova.AccelListener" />
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.media-capture" />
