@@ -23,6 +23,11 @@ while($row = mysqli_fetch_array($result)) {
 	  "<br>", $row['location'], 
 	  "<br>", $row['instructor'],  
 	  "<br><span id=\"detailComments\">", $row['comments'], "</span><br>";
+
+	  //SORAN add buttons on admin here please
+	  if($admin == 1) {
+	  	echo "some buttons";
+	  }
 }
 	else if($field == "location"){
 		echo $row['location'];
