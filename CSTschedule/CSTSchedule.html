@@ -24,6 +24,7 @@
 			<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 			<script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
 			<script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
+			<script type="text/javascript" src="shake.js"></script>
 			<script src="functions.js"></script> 
 		<meta charset="UTF-8">
 		<title>CST Schedule</title>
@@ -112,6 +113,21 @@
 
 				<a onClick="tableSelector('later', 'tableHere')" data-role="button" id="nextWeek" data-icon="arrow-r" data-iconpos="notext" data-form="ui-btn-up-a">Next</a>
 				<br>
+
+				<script type="text/javascript">
+					window.onload = function() {
+ 						window.addEventListener('shake', shakeEventDidOccur, false);
+
+  						//define a custom method to fire when shake occurs.
+  						function shakeEventDidOccur () {
+
+   							//put your own code here etc.
+    						if (confirm("Undo?")) {
+
+    						}
+  						}
+					};
+				</script>
 
 				<div id="tableHere"></div>
 
