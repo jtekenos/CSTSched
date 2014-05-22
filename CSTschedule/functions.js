@@ -421,3 +421,45 @@ function getLoginInfo() {
 
       xmlhttp.send();
 }
+
+//fill user specific header buttons
+function uNameButtons() { 
+    //alert("uNameButtons ran");
+ var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      //document.getElementById("testDivPlsIgnore").innerHTML=xmlhttp.responseText;
+      var output = innerHTML=xmlhttp.responseText;
+       replaceClassContent("userHeaderDiv", output);
+    }
+  }
+
+xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/loginUserName.php",true);
+
+  xmlhttp.send();
+}
+
+function logout() { 
+ var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+     // document.getElementById("testDivPlsIgnore").innerHTML=xmlhttp.responseText;
+     var logoutResponse = xmlhttp.responseText;
+     alert(logoutResponse);
+    }
+  }
+
+xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/logout.php",true);
+
+  xmlhttp.send();
+}
+
+function replaceClassContent(matchClass, content) {
+    var elems = document.getElementsByTagName('*'), i;
+    for (i in elems) {
+        if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ')
+                > -1) {
+            elems[i].innerHTML = content;
+        }
+    }
+}
