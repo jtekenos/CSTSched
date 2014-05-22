@@ -7,7 +7,6 @@
 			<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
 			<link rel="stylesheet" href="Style.css" />
-			<!-- Style/Funtion fix for schedule links for FireFox -->
 			<style type="text/css">
 			@-moz-document url-prefix() {
 					.linkSpan {
@@ -41,7 +40,6 @@
 			</div><!-- /header -->
 
 			<div role="main" class="ui-content">
-				<!-- level and set collapsible selectors -->
 				<div id="levelCollapsible" data-role="collapsible" data-theme="b" data-content-theme="b">
 				    <h4 ><span id="lvlHeader">Level</span></h4>
 				    <button id="lvl1" class="ui-btn ui-btn-a" value="1" onClick="menuSelector('lvl1', 'lvlHeader'); getLevel('lvl1')">Level 1</button>
@@ -61,7 +59,6 @@
 				    <button id="setO" class="ui-btn ui-btn-a" value="O" onClick="menuSelector('setO', 'setHeader'); getSet('setO'); collapseSet()">Set O</button>
 				    <button id="setQ" class="ui-btn ui-btn-a" value="Q" onClick="menuSelector('setQ', 'setHeader'); getSet('setQ'); collapseSet()">Set Q</button>
 				</div>
-				<!-- button that takes input from above fields -->
 				<a href="#schedule" onclick="tableSelector('current', 'tableHere'); uNameButtons()" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Get Schedule</a>
 				<div id="twitterFeedDiv">
 					<div id="twitterFeedWrapper">
@@ -500,9 +497,13 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
+				<div class="userHeaderDiv">
+					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User</a>
+				</div>
 			</div><!-- /header -->
 
 		<div role="main" class="ui-content">
+			 <a href="CSTSchedule.html" id="changeScheduleButton" class="ui-btn ui-btn-aui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Back</a>
         <script>
             $(function() {
                 $("#formID").on("submit", function(e) {
@@ -522,8 +523,8 @@
         <!-- An example of a form that gets submitted -->
     <div id="responseID"></div>
        <form id="formID" action="http://okoceanfisheries.host56.com/CSTschedule/login.php"> <!--action tells ajax which php file to use-->
-            <input type="text" id="username" name="username" placeholder="Username">
-            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="text" id="username" name="username">
+            <input type="password" id="password" name="password">
             <input type="submit" value="submit"/>
         </form>
         
