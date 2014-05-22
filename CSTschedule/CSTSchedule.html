@@ -59,7 +59,7 @@
 				    <button id="setO" class="ui-btn ui-btn-a" value="O" onClick="menuSelector('setO', 'setHeader'); getSet('setO'); collapseSet()">Set O</button>
 				    <button id="setQ" class="ui-btn ui-btn-a" value="Q" onClick="menuSelector('setQ', 'setHeader'); getSet('setQ'); collapseSet()">Set Q</button>
 				</div>
-				<a href="#schedule" onclick="tableSelector('current', 'tableHere')"id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Get Schedule</a>
+				<a href="#schedule" onclick="tableSelector('current', 'tableHere'); getLoginInfo()"id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Get Schedule</a>
 				<div id="twitterFeedDiv">
 					<div id="twitterFeedWrapper">
 					<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/CSTSchedule" data-widget-id="467345651915694082" data-link-color="#CFCFD1" data-chrome="transparent" data-tweet-limit="5">Tweets by @CSTSchedule</a>
@@ -100,12 +100,10 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div class="userHeaderDiv">
-					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
-				</div>
 				<div>
 					<a href="#add" id="addButton" class=" ui-btn ui-btn-aui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Add</a>
 				</div>	
+				<div id="loginInfoHere"></div>			
 			</div><!-- /header -->
 
 			<div role="main" id="scheduleContent" class="ui-content">
@@ -164,9 +162,7 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div class="userHeaderDiv">
-					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
-				</div>
+				<div id="loginInfoHere"></div>			
 			</div><!-- /header -->
 			<div role="main" class="ui-content">
 
@@ -186,9 +182,7 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div class="userHeaderDiv">
-					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
-				</div>
+				<div id="loginInfoHere"></div>			
 			</div><!-- /header -->
 			<div role="main" class="ui-content">
 				
@@ -345,9 +339,7 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div class="userHeaderDiv">
-					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" >User1</a>
-				</div>
+				<div id="loginInfoHere"></div>							
 				<div>
 					<a href="#schedule" id="scheduleButton" class=" ui-btn ui-btn-a ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Schedule</a>
 				</div>	
@@ -497,9 +489,7 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
-				<div class="userHeaderDiv">
-					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User</a>
-				</div>
+				<div id="loginInfoHere"></div>			
 			</div><!-- /header -->
 
 		<div role="main" class="ui-content">
@@ -536,9 +526,8 @@
 
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home"/></a>
-				<div class="userHeaderDiv">
-					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
-				</div>
+				<div id="loginInfoHere"></div>			
+
 			</div><!-- /header -->
 
 			
@@ -592,9 +581,7 @@
 		<div id="profile" data-role="page">
 			<div id="navHeader" data-role="header">
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home"/></a>
-				<div class="userHeaderDiv">
-					<a href="#profile" id="UserHeaderButton" class=" ui-btn ui-btn-a ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">User1</a>
-				</div>	
+				<div id="loginInfoHere"></div>			
 			</div><!-- /header -->
 
 			<div role="main" class="ui-content">

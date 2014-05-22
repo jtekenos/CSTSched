@@ -409,3 +409,15 @@ $(function() {
 		});
 	});
 });
+//displays a username and admin(if admin display '1') for selected entry in the database AJAX => loginUserName.php
+function getLoginInfo() { 
+     var xmlhttp=new XMLHttpRequest();
+      xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+          document.getElementById("loginInfoHere").innerHTML=xmlhttp.responseText;
+        }
+      }
+    xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/loginUserName.php", true);
+
+      xmlhttp.send();
+}
