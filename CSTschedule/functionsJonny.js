@@ -266,13 +266,12 @@ function scheduleHeader() {
  var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("eventInfoContent").innerHTML=xmlhttp.responseText;
+      document.getElementById("navHeader").innerHTML = xmlhttp.responseText;
     }
   }
 
 xmlhttp.open("GET","scheduleHeader.php",true);
-
-document.getElementById("navHeader").innerHTML = xmlhttp.send();
+xmlhttp.send();
 }
 
 function fillFields() {
