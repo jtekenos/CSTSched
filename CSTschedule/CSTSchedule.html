@@ -656,19 +656,26 @@
 		
 		<!-- ***************************USER PROFILE PAGE*************************** -->
 		<div id="profile" data-role="page">
+			<!-- header -->
 			<div id="navHeader" data-role="header">
+				<!-- home button -->
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home"/></a>
+				<!-- div that holds user buttons -->
 				<div class="userHeaderDiv">
 				</div>	
 			</div><!-- /header -->
 
 			<div role="main" class="ui-content">
 				<h2 id="uNameProfile">User Profile</h2>
+				<!-- form that takes input and modifies user profile -->
 				<form id="registerForm" name="registerForm" method="post" action="">
+					<!-- change password input -->
 					<input type="password" id="pwd" name="password" placeholder="Change Password">
+					<!-- confrim new password input -->
 					<input type="password" id="confirmPwd" name="cpassword" placeholder="Re-enter Password">
+					<!-- Change email input-->
 					<input type="email" id="txtEmail" name="email" placeholder="Email: bob123@gmail.com">
-
+					<!-- script that validates password and email -->
 					<script>
 					$( "#registerForm" ).validate({
 						rules: {
@@ -683,7 +690,7 @@
 						}
 					});
 					</script>
-
+					<!-- level selector -->
 					<select>
 						<option>Select Level</option>
 				      	<option id="lvl1" value="1">Level 1</option>
@@ -691,13 +698,14 @@
 				      	<option id="lvl3" value="3">Level 3</option>
 				      	<option id="lvl4" value="4">Level 4</option>
 				    </select>
+				    <!-- set selector -->
 					<select>
 						<option>Select Set</option>
 				      	<option id="setA" value="A">Set A</option>
 				   		<option id="setB" value="B">Set B</option>
 				   		<option id="setC" value="C">Set C</option>
 				    </select>
-
+				    <!-- submint/reset buttons -->
 					<div id="RegisterButtonDiv">
 						<input class="button" type="submit" value="Update" name="Update" data-icon="check" data-transition="pop">
 						<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">	
