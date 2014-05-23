@@ -68,7 +68,7 @@ function menuSelector2(sourceId, destinationId) {
       document.getElementById('SDsetQ').style.display = 'none';
       $("#levelCollapsible2").collapsible({collapsed:true});
   } else if (clickedMenu == 'Level 2') {
-    document.getElementById('SDsetA').style.display = 'block';
+      document.getElementById('SDsetA').style.display = 'block';
       document.getElementById('SDsetB').style.display = 'block';
       document.getElementById('SDsetC').style.display = 'block';
       document.getElementById('SDsetD').style.display = 'block';
@@ -79,7 +79,7 @@ function menuSelector2(sourceId, destinationId) {
       document.getElementById('SDsetQ').style.display = 'none';
       $("#levelCollapsible2").collapsible({collapsed:true});
   } else if (clickedMenu == 'Level 3') {
-    document.getElementById('SDsetA').style.display = 'none';
+      document.getElementById('SDsetA').style.display = 'none';
       document.getElementById('SDsetB').style.display = 'none';
       document.getElementById('SDsetC').style.display = 'block';
       document.getElementById('SDsetD').style.display = 'block';
@@ -90,7 +90,7 @@ function menuSelector2(sourceId, destinationId) {
       document.getElementById('SDsetQ').style.display = 'none';
       $("#levelCollapsible2").collapsible({collapsed:true});
   } else if (clickedMenu == 'Level 4') {
-    document.getElementById('SDsetA').style.display = 'block';
+      document.getElementById('SDsetA').style.display = 'block';
       document.getElementById('SDsetB').style.display = 'block';
       document.getElementById('SDsetC').style.display = 'none';
       document.getElementById('SDsetD').style.display = 'none';
