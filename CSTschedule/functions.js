@@ -213,6 +213,9 @@ function registerSetSelect() {
     $('#registerSet option[value="Q"]').hide();        
   }else if (regLvl == '1') {
     $('#registerSet option[value="noLvl"]').hide();
+    $('#registerSet option[value="A"]').show();
+    $('#registerSet option[value="B"]').show();
+    $('#registerSet option[value="C"]').show();
     $('#registerSet option[value="D"]').hide();
     $('#registerSet option[value="E"]').hide();
     $('#registerSet option[value="G"]').hide();
@@ -221,6 +224,11 @@ function registerSetSelect() {
     $('#registerSet option[value="Q"]').hide();
   } else if (regLvl == '2') {
     $('#registerSet option[value="noLvl"]').hide();
+    $('#registerSet option[value="A"]').show();
+    $('#registerSet option[value="B"]').show();
+    $('#registerSet option[value="C"]').show();
+    $('#registerSet option[value="D"]').show();
+    $('#registerSet option[value="E"]').show();
     $('#registerSet option[value="G"]').hide();
     $('#registerSet option[value="L"]').hide();
     $('#registerSet option[value="O"]').hide();
@@ -229,16 +237,24 @@ function registerSetSelect() {
     $('#registerSet option[value="noLvl"]').hide();
     $('#registerSet option[value="A"]').hide();
     $('#registerSet option[value="B"]').hide();
+    $('#registerSet option[value="C"]').show();
+    $('#registerSet option[value="D"]').show();
     $('#registerSet option[value="E"]').hide();
     $('#registerSet option[value="G"]').hide();
+    $('#registerSet option[value="L"]').show();
     $('#registerSet option[value="O"]').hide();
     $('#registerSet option[value="Q"]').hide();    
   } else if (regLvl == '4') {
     $('#registerSet option[value="noLvl"]').hide();
+    $('#registerSet option[value="A"]').show();
+    $('#registerSet option[value="B"]').show();
     $('#registerSet option[value="C"]').hide();
     $('#registerSet option[value="D"]').hide();
     $('#registerSet option[value="E"]').hide();
-    $('#registerSet option[value="L"]').hide();    
+    $('#registerSet option[value="G"]').show();
+    $('#registerSet option[value="L"]').hide();
+    $('#registerSet option[value="O"]').show();
+    $('#registerSet option[value="Q"]').show();   
   }
 }
 
