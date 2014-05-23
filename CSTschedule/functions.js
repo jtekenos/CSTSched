@@ -393,7 +393,7 @@ function fillFields() {
 	pullField("comments", "comments");
 }
 
-//shake detection function
+//shake detection function **credit alex gibson ~/github.com/alexgibson/shake.js/
 (function (window, document) {
 
     function Shake() {
