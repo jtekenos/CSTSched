@@ -192,12 +192,15 @@
 
 		<!-- ***************************Modify Page*************************** -->
 		<div id="modifyPage" data-role="page">
-
+			<!-- header -->
 			<div id="navHeader" data-role="header">
+				<!-- front page button -->
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
+				<!-- dive that holds user buttons -->
 				<div class="userHeaderDiv">
 					
 				</div>
+				<!-- div that holds the add button -->
 				<div class="addbuttonDiv">
 					
 				</div>	
@@ -205,17 +208,20 @@
 			<div role="main" class="ui-content">
 				
 				<h1 align="center">Modify Event</h1>
+				<!-- div that displase response after ajax request -->
 				<div id="modResponse"></div>
+				<!-- form that takes in user input and sends it to modify.php to be prosessed -->
 				<form id="modForm" name="modForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/modify.php">
+					<!-- event name -->
 					<label for="addEventName" id="eventname"></label>
 					<input type="text" id="addEventName" name="addEventName" placeholder="Event Name">
-
+					<!-- professor name -->
 					<label for="addProfName" id="instructor"></label>
 					<input type="text" id="addProfName" name="addProfName" placeholder="Instructor Name">
-
+					<!-- location -->
 					<label for="addLocation" id="location"></label>
 					<input type="text" id="addLocation" name="addLocation" placeholder="Location">
-
+					<!-- level selection -->
 					<select name="selLevel" id="selLevel" onchange="dynamicSetCheckbox()">
 						<option value="noLvl">Select Level</option>
 						<option value="1">Level 1</option>
@@ -223,7 +229,7 @@
 			      		<option value="3">Level 3</option>
 			      		<option value="4">Level 4</option>
 					</select>
-
+					<!-- set selection -->
 					<div id="setAndNotificationDiv">
 					<div id="setCheckboxLvl0" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
@@ -284,7 +290,7 @@
 						<input type="checkbox" name="checkboxSet" id="checkbox-9" value="setQ">
 			    		</fieldset>
 					</div>
-					
+					<!-- event start time -->
 					</div>
 					<div id="timeButtons">
 						<label for="selStartTime" id="timefrom"></label>
@@ -312,7 +318,7 @@
 						  <option value="17:30">17:30</option>
 						  
 						</select>
-
+						<!-- event end time -->
 						<label for="selEndTime" id="timeto"></label>
 						<select name="selEndTime" size="1">
 						<option value="">Select End Time</option>
@@ -338,7 +344,7 @@
 						  <option value="17:30">17:30</option>
 						</select>
 					</div>
-
+					<!-- date event takes place -->
 					<label for="date" id="event_date"></label>
 					<input type="date" name="date">
 					<div data-role="fieldcontain">
@@ -354,8 +360,9 @@
 					         	<label for="radio-choice-3">Canceled</label>
 					    </fieldset>
 					</div>
+					<!-- comments/additional information field -->
 					<input type="text" name="eventType" placeholder="Comments">
-					
+						<!-- submit and reset buttons -->
 						<input class="button" type="submit" value="Update" name="Update" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
 						<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
 						<input  name="key" class="hiddenInfo" value="">	
