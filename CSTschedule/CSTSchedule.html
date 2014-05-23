@@ -7,6 +7,7 @@
 			<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
 			<link rel="stylesheet" href="Style.css" />
+			<!-- Firefox compadability styling for linkspan class-->
 			<style type="text/css">
 			@-moz-document url-prefix() {
 					.linkSpan {
@@ -38,7 +39,7 @@
 			<div id="header" data-role="header">
 				<img src="Logo.jpg" width="316" height="100" alt="CST Schedule"/>
 			</div><!-- /header -->
-
+			<!-- collapsible selectors for level and set -->
 			<div role="main" class="ui-content">
 				<div id="levelCollapsible" data-role="collapsible" data-theme="b" data-content-theme="b">
 				    <h4 ><span id="lvlHeader">Level</span></h4>
@@ -59,7 +60,9 @@
 				    <button id="setO" class="ui-btn ui-btn-a" value="O" onClick="menuSelector('setO', 'setHeader'); getSet('setO'); collapseSet()">Set O</button>
 				    <button id="setQ" class="ui-btn ui-btn-a" value="Q" onClick="menuSelector('setQ', 'setHeader'); getSet('setQ'); collapseSet()">Set Q</button>
 				</div>
+				<!-- Button that takes the above input and redirects specifyied table -->
 				<a href="#schedule" onclick="tableSelector('current', 'tableHere'); uNameButtons()" id="GetScheduleButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Get Schedule</a>
+				<!-- twitter widget code -->
 				<div id="twitterFeedDiv">
 					<div id="twitterFeedWrapper">
 					<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/CSTSchedule" data-widget-id="467345651915694082" data-link-color="#CFCFD1" data-chrome="transparent" data-tweet-limit="5">Tweets by @CSTSchedule</a>
@@ -82,7 +85,7 @@
 			<br>
 			<br>
 			<div id="footer" data-role="footer">
-
+				<!-- buttons that take user to login/registeration pages -->
 				<div class="footerButtons">
 					<div id="loginButtonDiv">
 					<a href="#loginPage" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" data-ajax="false">Login</a>
