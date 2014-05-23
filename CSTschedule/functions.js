@@ -1,4 +1,5 @@
 //src="http://code.jquery.com/jquery-1.9.1.js";
+//Function that dynamically builds selectors for set
 function menuSelector(sourceId, destinationId) {
 	var clickedMenu = document.getElementById(sourceId).innerHTML;
 	var destinationMenu = document.getElementById(destinationId).innerHTML;
@@ -50,7 +51,7 @@ function menuSelector(sourceId, destinationId) {
     	$("#levelCollapsible").collapsible({collapsed:true});
 	} 
 }
-
+//Function that dynamically builds selectors for sets
 function menuSelector2(sourceId, destinationId) {
   var clickedMenu = document.getElementById(sourceId).innerHTML;
   var destinationMenu = document.getElementById(destinationId).innerHTML;
@@ -102,20 +103,20 @@ function menuSelector2(sourceId, destinationId) {
       $("#levelCollapsible2").collapsible({collapsed:true});
   } 
 }
-
+// collapses set selector
 function collapseSet() {
 	$("#setCollapsible").collapsible({collapsed:true})
 }
-
+// collapses set selector
 function collapseSet2() {
 	$("#setCollapsible2").collapsible({collapsed:true})
 }
-
+// collapses level selector
 function collapseLevel2() {
 	$("#levelCollapsible2").collapsible({collapsed:true});
 }
 
-
+//dynamically builds checkboxes for sets based on selected level
 function dynamicSetCheckbox() {
 	var selectedLevel = $( "#selLevel" ).val();
   if (selectedLevel == 0) {
@@ -150,7 +151,7 @@ function dynamicSetCheckbox() {
 		$( "#setCheckboxLvl4" ).show();
 	}
 } 
-
+//dynamically builds checkboxes for sets based on level
 function dynamicSetCheckbox2() {
 	var selectedLevel2 = $( "#selLevel2" ).val();
 	if (selectedLevel2 == 'noLvl') {
@@ -185,13 +186,13 @@ function dynamicSetCheckbox2() {
 		$( "#setCheckboxLvl4_2" ).show();
 	}
 } 
-
+//grabs selected level in html element
 function getLevel(lvlId) {
 	storeLevel = document.getElementById(lvlId).value;
   levelSet = storeLevel + storeSet;
 	return storeLevel;
 }
-
+//grabs selected set in html element
 function getSet(setId) {
 	storeSet = document.getElementById(setId).value;
   levelSet = storeLevel + storeSet;
@@ -369,7 +370,7 @@ xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/cancel.php?q=
 
   xmlhttp.send();
 }
-
+//flags a event as important
 function importantEvent() { 
  var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
@@ -382,6 +383,7 @@ xmlhttp.open("GET","important.php?q=" + primaryKey + "&q2=" + levelSet,true);
 
   xmlhttp.send();
 }
+//fills event fieds 
 function fillFields() {
 	document.getElementsByName("key")[0].value=primaryKey;
 	pullField("eventname", "eventname");
@@ -559,7 +561,7 @@ xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/loginUserName
 
   xmlhttp.send();
 }
-
+// function that logs out the user 
 function logout() { 
  var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
@@ -574,6 +576,7 @@ xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/logout.php",t
 
   xmlhttp.send();
 }
+//inserts addbutton to page if user is flaged as an administrator
 function addButtons() { 
  var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
@@ -600,7 +603,7 @@ function replaceClassContent(matchClass, content) {
         }
     }
 }
-
+// get level and set from loged in user
 function getLevelSet() { 
  var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
