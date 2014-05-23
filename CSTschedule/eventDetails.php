@@ -9,13 +9,17 @@ require_once('config.php');
 
 	include 'functions.php';
 	require_once('config.php');
-	session_start();
 
+	$admin = 0;
+	session_start();
 	// Connect to server and select database.
 	mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect, error: ".mysql_error());
 	mysql_select_db(DB_DATABASE)or die("cannot select DB, error: ".mysql_error());
 	$tbl_name="accounts"; // Table name
-	$admin = $_SESSION["SESS_admin"];
+	if($_SESSION["SESS_admin"] == 1 && isLoggedIn()) {
+		$admin = 1;
+	}
+
 
 
 
@@ -37,11 +41,19 @@ while($row = mysqli_fetch_array($result)) {
 	  "<br><span id=\"detailComments\">", $row['comments'], "</span><br>";
 	  //SORAN add buttons on admin here please
 	  if($admin == 1) {
-	  	echo "<a onclick=\"cancelEvent()\" id=\"GetScheduleButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Cancel class</a>";
-	  	echo "<div id=\"eventInfoButtons\"><a href=\"#modifyPage \"onclick=\"fillFields()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Modify class</a></div>";
-	  	echo "<div id=\"eventInfoButtons\"><a onclick=\"deleteEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Delete class</a>";
-	  	echo "<div id=\"eventInfoButtons\"><a onclick=\"cancelEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Mark as Cancelled</a>";
-	  	echo "<div id=\"eventInfoButtons\"><a onclick=\"importantEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Mark as Important</a>";
+	  	echo "<div id=\"eventInfoButtons\">
+
+		  		<a onclick=\"cancelEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Cancel class</a>
+
+		  		<a href=\"#modifyPage \"onclick=\"fillFields()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Modify class</a>
+
+		  		<a onclick=\"deleteEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Delete class</a>
+
+		  		<a onclick=\"cancelEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Mark as Cancelled</a>
+
+		  		<a onclick=\"importantEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Mark as Important</a>
+
+	  		</div>";
 	  }
 }
 	else if($field == "location"){
