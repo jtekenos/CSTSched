@@ -590,12 +590,14 @@
 		<div id="registerPage" data-role="page">
 
 			<div id="navHeader" data-role="header">
+				<!-- home button -->
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home"/></a>
 			</div><!-- /header -->
 
 			
 			<div role="main" class="ui-content">
 				<h1 align="center">User Registration</h1>
+				<!-- script that pushes form to register.php using ajax and calles response -->
 				<script>
 		            $(function() {
 		                $("#registerFormID").on("submit", function(e) {
@@ -612,14 +614,18 @@
 		            });
 		        </script>
 
-        <!-- An example of a form that gets submitted -->
+        <!-- form that takes in input and sends it to register.php for processing -->
 			    <div id="RegResponseID"></div>
 			        <form id="registerFormID" action="http://okoceanfisheries.host56.com/CSTschedule/register.php"> <!--action tells ajax which php file to use-->
+			        	<!-- User name input -->
 			            <input type="text" id="uName" name="uName" placeholder="User name" required>
+			            <!-- email input -->
 					    <input type="email" id="txtEmail" name="email" placeholder="Email" required>
+					    <!-- password input -->
 					    <input type="password" id="pwd" name="pwd" placeholder="Password" required>
+					    <!-- password confrimation input -->
 					    <input type="password" id="confimPwd" name="confirmPwd" placeholder="Re-enter Password" required>
-
+					    <!-- level selector -->
 					    <select id="registerLevel" name= "level" onchange="registerSetSelect();">
 					            <option value="noLvl">Select Level</option>
 					            <option value="1">Level 1</option>
@@ -627,6 +633,7 @@
 					            <option value="3">Level 3</option>
 					            <option value="4">Level 4</option>
 					    </select>
+					    <!-- set selector -->
 					    <select id="registerSet" name = "set">
 					            <option>Select Set</option>
 					            <option value="noLvl">Select level first</option>
@@ -640,6 +647,7 @@
 					            <option value="O">Set O</option>
 					            <option value="Q">Set Q</option>
 					    </select>
+					    <!-- submit button -->
 			            <input type="submit" value="Submit"/>
 			        </form>
 			</div><!-- /content -->
