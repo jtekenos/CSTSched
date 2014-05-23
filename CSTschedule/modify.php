@@ -18,6 +18,7 @@ include "functions.php";
 	$startTime = mysqli_real_escape_string($con, $_POST['selStartTime']);
 	$endTime = mysqli_real_escape_string($con, $_POST['selEndTime']);
 	$date = mysqli_real_escape_string($con, $_POST['date']);
+	$classType = mysqli_real_escape_string($con, $_POST['classType']);
 	
 	$tableName = "schdule1";
 
@@ -37,6 +38,7 @@ while($row = mysqli_fetch_array($result)) {
   $OldlevelSet = $row['level_id'];
   $OldeventType = $row['comments'];
   $Olddate = $row['event_date'];
+  $OldclassType = $row['special'];
 }
 
 	//if new value is blank set it as the previously stored one
@@ -63,6 +65,9 @@ while($row = mysqli_fetch_array($result)) {
 	}
 	if ($date == '') {
 		$date = $Olddate;
+	}
+	if ($classType == '') {
+		$classType = $OldclassType;
 	}
 
 $startTBlock = tBlockConverter($startTime);
@@ -108,7 +113,7 @@ if($passed == 2) {
 
 if($passed == 1) {
 	mysqli_query($con,"UPDATE $tableName SET eventname = '$event', location = '$location', timefrom = '$startTime', timeto = '$endTime',
-		instructor = '$prof', level_id = '$levelSet', comments = '$eventType', event_date = '$date', timeBlocks = '$tBlocks' 
+		instructor = '$prof', level_id = '$levelSet', comments = '$eventType', event_date = '$date', timeBlocks = '$tBlocks', special = '$classType' 
 		WHERE id='$primaryKey'");
 }
 
