@@ -201,8 +201,17 @@ function getSet(setId) {
 //gets level entered on register page & displays available set select <option> only
 function registerSetSelect() {
   var regLvl = document.getElementById('registerLevel').value
-  alert("level value " + regLvl);
-  if (regLvl == '1') {
+  if (regLvl == 'noLvl') {
+    $('#registerSet option[value="A"]').hide();
+    $('#registerSet option[value="B"]').hide();
+    $('#registerSet option[value="C"]').hide();
+    $('#registerSet option[value="D"]').hide();
+    $('#registerSet option[value="E"]').hide();
+    $('#registerSet option[value="G"]').hide();
+    $('#registerSet option[value="L"]').hide(); 
+    $('#registerSet option[value="O"]').hide();
+    $('#registerSet option[value="Q"]').hide();        
+  }else if (regLvl == '1') {
     $('#registerSet option[value="noLvl"]').hide();
     $('#registerSet option[value="D"]').hide();
     $('#registerSet option[value="E"]').hide();
@@ -210,6 +219,26 @@ function registerSetSelect() {
     $('#registerSet option[value="L"]').hide();
     $('#registerSet option[value="O"]').hide();
     $('#registerSet option[value="Q"]').hide();
+  } else if (regLvl == '2') {
+    $('#registerSet option[value="noLvl"]').hide();
+    $('#registerSet option[value="G"]').hide();
+    $('#registerSet option[value="L"]').hide();
+    $('#registerSet option[value="O"]').hide();
+    $('#registerSet option[value="Q"]').hide();
+  } else if (regLvl == '3') {
+    $('#registerSet option[value="noLvl"]').hide();
+    $('#registerSet option[value="A"]').hide();
+    $('#registerSet option[value="B"]').hide();
+    $('#registerSet option[value="E"]').hide();
+    $('#registerSet option[value="G"]').hide();
+    $('#registerSet option[value="O"]').hide();
+    $('#registerSet option[value="Q"]').hide();    
+  } else if (regLvl == '4') {
+    $('#registerSet option[value="noLvl"]').hide();
+    $('#registerSet option[value="C"]').hide();
+    $('#registerSet option[value="D"]').hide();
+    $('#registerSet option[value="E"]').hide();
+    $('#registerSet option[value="L"]').hide();    
   }
 }
 
