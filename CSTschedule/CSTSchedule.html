@@ -100,8 +100,9 @@
 		</div><!--page -->
 		<!-- ************************SCHEDULE PAGE*************************** -->
 		<div id="schedule" data-role="page">
-
+			<!-- header -->
 			<div id="navHeader" data-role="header">
+				<!-- returns user to front page -->
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
 				<div class="userHeaderDiv">
 					
@@ -110,13 +111,14 @@
 					
 				</div>	
 			</div><!-- /header -->
-
+			<!-- content -->
 			<div role="main" id="scheduleContent" class="ui-content">
+				<!-- button that move to the last week in selected schedule -->
 				<a onClick="tableSelector('earlier', 'tableHere'); clearShakeData()" data-role="button" id="previousWeek" data-icon="arrow-l" data-iconpos="notext" data-form="ui-btn-up-a">Previous</a>
-
+				<!-- button that moves to the next week in selected schedule -->
 				<a onClick="tableSelector('later', 'tableHere'); clearShakeData()" data-role="button" id="nextWeek" data-icon="arrow-r" data-iconpos="notext" data-form="ui-btn-up-a">Next</a>
 				<br>
-				
+				<!-- script that triggers by shaking device. Resets the schedule to the current week -->
 				<script>					    
   					window.onload = function() {
    						window.addEventListener('shake', shakeEventDidOccur, false);
@@ -128,6 +130,7 @@
     					}
   					};
   				</script>
+  				<!-- div that holds the table -->
 				<div id="tableHere"></div>
 			</div><!-- /content -->
 		</div><!-- /page -->
