@@ -331,12 +331,19 @@
 
 					<label for="date" id="event_date"></label>
 					<input type="date" name="date">
-					<fieldset>
-						<legend>Mark class as:</legend>
-						Normal<input type="radio" name="classType" value="n"><br>
-						Important<input type="radio" name="classType" value="i"><br>
-						Canceled<input type="radio" name="classType" value="c">
-					</fieldset>
+					<div data-role="fieldcontain">
+					    <fieldset data-role="controlgroup">
+					    	<legend>Class type:</legend>
+					         	<input type="radio" name="classType" id="radio-choice-1" value="n" />
+					         	<label for="radio-choice-1">Normal</label>
+
+					         	<input type="radio" name="classType" id="radio-choice-2" value="i"  />
+					         	<label for="radio-choice-2">Important</label>
+
+					         	<input type="radio" name="classType" id="radio-choice-3" value="c"  />
+					         	<label for="radio-choice-3">Canceled</label>
+					    </fieldset>
+					</div>
 					<input type="text" name="eventType" placeholder="Comments">
 					
 						<input class="button" type="submit" value="Update" name="Update" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
@@ -492,11 +499,16 @@
 					<label for="date">Date Input:</label>
 					<input type="date" name="date" id="date">
 					<input type="text" id="eventType" name="eventType" placeholder="Comments">
-					<fieldset>
-						<legend>Mark class as:</legend>
-						Normal<input type="radio" name="classType" value="n"><br>
-						Important<input type="radio" name="classType" value="i">
-					</fieldset>
+					<div data-role="fieldcontain">
+					    <fieldset data-role="controlgroup">
+					    	<legend>Class type:</legend>
+					         	<input type="radio" name="classType" id="radio-choice-1" value="n" />
+					         	<label for="radio-choice-1">Normal</label>
+
+					         	<input type="radio" name="classType" id="radio-choice-2" value="i"  />
+					         	<label for="radio-choice-2">Important</label>
+					    </fieldset>
+					</div>
 					<br><br>
 					<input class="button" type="submit" value="Add" name="Add" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
 					<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
