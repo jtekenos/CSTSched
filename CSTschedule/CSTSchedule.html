@@ -239,7 +239,6 @@
 					</div>
 					<div id="setCheckboxLvl1" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
-						<legend>Set (select all that apply)</legend>
 						<label for="checkbox-1">Set A</label>
 						<input type="checkbox" name="checkboxSet" id="checkbox-1" value="setA">
 						<label for="checkbox-2">Set B</label>
@@ -250,7 +249,6 @@
 					</div>
 					<div id="setCheckboxLvl2" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
-						<legend>Set (select all that apply)</legend>
 						<label for="checkbox-1">Set A</label>
 						<input type="checkbox" name="checkboxSet" id="checkbox-1" value="setA">
 						<label for="checkbox-2">Set B</label>
@@ -265,7 +263,6 @@
 					</div>
 					<div id="setCheckboxLvl3" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
-						<legend>Set (select all that apply)</legend>
 						<label for="checkbox-3">Set C</label>
 						<input type="checkbox" name="checkboxSet" id="checkbox-3" value="setC">
 						<label for="checkbox-4">Set D</label>
@@ -276,7 +273,6 @@
 					</div>
 					<div id="setCheckboxLvl4" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
-						<legend>Set (select all that apply)</legend>
 						<label for="checkbox-1">Set A</label>
 						<input type="checkbox" name="checkboxSet" id="checkbox-1" value="setA">
 						<label for="checkbox-2">Set B</label>
@@ -413,7 +409,6 @@
 					</div>
 					<div id="setCheckboxLvl1_2" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
-						<legend>Set (select all that apply)</legend>
 						<label for="checkbox-1">Set A</label>
 						<input type="checkbox" name="checkboxSet[]" id="checkbox-1" value="setA">
 						<label for="checkbox-2">Set B</label>
@@ -424,7 +419,6 @@
 					</div>
 					<div id="setCheckboxLvl2_2" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
-						<legend>Set (select all that apply)</legend>
 						<label for="checkbox-1">Set A</label>
 						<input type="checkbox" name="checkboxSet[]" id="checkbox-1" value="setA">
 						<label for="checkbox-2">Set B</label>
@@ -438,8 +432,7 @@
 			    		</fieldset>
 					</div>
 					<div id="setCheckboxLvl3_2" data-role="fieldcontain">
-			 			<fieldset data-role="controlgroup">
-						<legend>Set (select all that apply)</legend>
+			 			<fieldset data-role="controlgroup">>
 						<label for="checkbox-3">Set C</label>
 						<input type="checkbox" name="checkboxSet[]" id="checkbox-3" value="setC">
 						<label for="checkbox-4">Set D</label>
@@ -450,7 +443,6 @@
 					</div>
 					<div id="setCheckboxLvl4_2" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
-						<legend>Set (select all that apply)</legend>
 						<label for="checkbox-1">Set A</label>
 						<input type="checkbox" name="checkboxSet[]" id="checkbox-1" value="setA">
 						<label for="checkbox-2">Set B</label>
@@ -666,7 +658,7 @@
 			<div role="main" class="ui-content">
 				<h2 id="uNameProfile">User Profile</h2>
 				<!-- form that takes input and modifies user profile -->
-				<form id="registerForm" name="registerForm" method="post" action="profile.php">
+				<form id="registerForm" name="registerForm" method="post" action="">
 					<!-- change password input -->
 					<input type="password" id="pwd" name="password" placeholder="Change Password">
 					<!-- confrim new password input -->
@@ -689,7 +681,7 @@
 					});
 					</script>
 					<!-- level selector -->
-					<select id="selLevel">
+					<select>
 						<option>Select Level</option>
 				      	<option id="lvl1" value="1">Level 1</option>
 				      	<option id="lvl2" value="2">Level 2</option>
@@ -697,7 +689,7 @@
 				      	<option id="lvl4" value="4">Level 4</option>
 				    </select>
 				    <!-- set selector -->
-					<select id="selSet">
+					<select>
 						<option>Select Set</option>
 				      	<option id="setA" value="A">Set A</option>
 				   		<option id="setB" value="B">Set B</option>

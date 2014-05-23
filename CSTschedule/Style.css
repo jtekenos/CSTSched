@@ -191,56 +191,56 @@ tr:nth-child(odd) {
 }
 
 #setCheckbox {
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 
 #setCheckboxLvl0 {
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 #setCheckboxLvl0_2 {
-	max-width: 40%;
+	width: 90%;
 	float: left;
 }
 #setCheckboxLvl1 {
 	display:none;
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 #setCheckboxLvl1_2 {
 	display:none;
-	max-width: 40%;
+	width: 90%;
 	float: left;
 }
 #setCheckboxLvl2 {
 	display:none;
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 #setCheckboxLvl2_2 {
 	display:none;
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 #setCheckboxLvl3 {
 	display: none;
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 #setCheckboxLvl3_2 {
 	display: none;
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 #setCheckboxLvl4 {
 	display: none;
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 #setCheckboxLvl4_2 {
 	display: none;
-	max-width: 40%;
+	max-width: 90%;
 	float: left;
 }
 
