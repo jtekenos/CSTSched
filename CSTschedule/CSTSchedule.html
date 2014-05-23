@@ -589,18 +589,25 @@
 					    <input type="password" id="pwd" name="pwd" placeholder="Password" required>
 					    <input type="password" id="confimPwd" name="confirmPwd" placeholder="Re-enter Password" required>
 
-					    <select name= "level">
-					            <option>Select Level</option>
+					    <select id="registerLevel" name= "level" onchange="registerSetSelect()">
+					            <option value="noLvl">Select Level</option>
 					            <option value="1">Level 1</option>
 					            <option value="2">Level 2</option>
 					            <option value="3">Level 3</option>
 					            <option value="4">Level 4</option>
 					    </select>
-					    <select name = "set">
+					    <select id="registerSet" name = "set">
 					            <option>Select Set</option>
+					            <option value="noLvl">Select level</option>
 					            <option value="A">Set A</option>
 					            <option value="B">Set B</option>
 					            <option value="C">Set C</option>
+					            <option value="D">Set D</option>
+					            <option value="E">Set E</option>
+					            <option value="G">Set G</option>
+					            <option value="L">Set L</option>
+					            <option value="O">Set O</option>
+					            <option value="Q">Set Q</option>
 					    </select>
 			            <input type="submit" value="Submit"/>
 			        </form>
