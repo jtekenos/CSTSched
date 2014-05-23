@@ -24,8 +24,6 @@ $startTime = mysqli_real_escape_string($con, $_POST['selStartTime']);
 $endTime = mysqli_real_escape_string($con, $_POST['selEndTime']);
 $date = mysqli_real_escape_string($con, $_POST['date']);
 
-$levelSet = $level . $set;
-
 //calculates number of timeblocks used
 $startTBlock = tBlockConverter($startTime);
 $tBlocks = tBlockConverter($endTime) - $startTBlock;
@@ -42,23 +40,23 @@ for($i=$tBlocks-1; $i>=0; $i--){
 //server side valdiation
 $passed = 1;
 if($tBlocks < 1) {
-	echo "<h3>Please select a valid time<h3>";
+	echo "<h3>Enter a valid time<h3>";
 	$passed = 0;
 } 
 if($event == "") {
-	echo "<h3>please specify the event name<h3>";
+	echo "<h3>Enter the event name<h3>";
 	$passed = 0;
 }
 if($location == "") {
-	echo "<h3>please specify the location<h3>";
+	echo "<h3>Enter the location<h3>";
 	$passed = 0;
 }
 if($level == "noLvl" or empty($_POST['checkboxSet'])) {
-	echo "<h3>please specify the level and set<h3>";
+	echo "<h3>Enter the level and set<h3>";
 	$passed = 0;
 }
 if($date == "") {
-	echo "<h3>please specify the date<h3>";
+	echo "<h3>Enter the date<h3>";
 	$passed = 0;
 }
 
@@ -88,7 +86,7 @@ if(!empty($_POST['checkboxSet'])) {
 }
 
 if($passed == 2) {
- echo "<h3>please pick another time<h3>";
+ echo "<h3>Choose a different time<h3>";
 }
 
 //if all validation is passed adds entry into database for each set selected

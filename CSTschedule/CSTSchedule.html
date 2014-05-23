@@ -331,6 +331,12 @@
 
 					<label for="date" id="event_date"></label>
 					<input type="date" name="date">
+					<fieldset>
+						<legend>Mark class as:</legend>
+						<input type="radio" name="classType" value="n">Normal<br>
+						<input type="radio" name="classType" value="i">Important<br>
+						<input type="radio" name="classType" value="c">Canceled
+					</fieldset>
 					<input type="text" name="eventType" placeholder="Comments">
 					
 						<input class="button" type="submit" value="Update" name="Update" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
@@ -483,12 +489,17 @@
 						</select>
 					</div>
 
-						<label for="date">Date Input:</label>
-						<input type="date" name="date" id="date">
+					<label for="date">Date Input:</label>
+					<input type="date" name="date" id="date">
 					<input type="text" id="eventType" name="eventType" placeholder="Comments">
-						<br><br>
-						<input class="button" type="submit" value="Add" name="Add" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
-						<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
+					<fieldset>
+						<legend>Mark class as:</legend>
+						<input type="radio" name="classType" value="n">Normal<br>
+						<input type="radio" name="classType" value="i">Important
+					</fieldset>
+					<br><br>
+					<input class="button" type="submit" value="Add" name="Add" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
+					<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
 				</form>
 				
 			</div><!-- /content -->
