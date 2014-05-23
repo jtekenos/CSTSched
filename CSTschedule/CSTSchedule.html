@@ -374,11 +374,14 @@
 
 <!--***************************ADD SCHEDULE PAGE***************************-->
 		<div id="add" data-role="page">
-
+			<!-- header -->
 			<div id="navHeader" data-role="header">
+				<!--home button -->
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
+				<!-- div that holds the user buttons -->
 				<div class="userHeaderDiv">
 				</div>
+				<!-- button that return user to schedule page -->
 				<div>
 					<a href="#schedule" id="scheduleButton" class=" ui-btn ui-btn-a ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop">Schedule</a>
 				</div>	
@@ -386,12 +389,17 @@
 			 
 			<div role="main" class="ui-content">
 				<h1 align="center">Add Event</h1>
+				<!-- div for ajax response -->
 				<div id="addResponse"></div>
+				<!-- form that send inputs to add.php to be processed -->
 				<form id="addForm" name="addForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/add.php">
+					<!-- event name input -->
 					<input type="text" id="addEventName" name="addEventName" placeholder="Event Name">
+					<!-- professor name input -->
 					<input type="text" id="addProfName" name="addProfName" placeholder="Instructor Name">
+					<!-- location input -->
 					<input type="text" id="addLocation" name="addLocation" placeholder="Location">
-
+					<!-- level selector -->
 					<select name="selLevel2" id="selLevel2" onchange="dynamicSetCheckbox2()">
 						<option value="noLvl">Select Level</option>
 						<option value="1">Level 1</option>
@@ -399,7 +407,7 @@
 			      		<option value="3">Level 3</option>
 			      		<option value="4">Level 4</option>
 					</select>
-
+					<!-- set selector div -->
 					<div id="setAndNotificationDiv">
 					<div id="setCheckboxLvl0_2" data-role="fieldcontain">
 			 			<fieldset data-role="controlgroup">
@@ -464,6 +472,7 @@
 					</div>
 
 					<div id="timeButtons">
+						<!-- start time -->
 						<select name="selStartTime" size="1">
 						<option value="">Select Start Time</option>
 						  <option value="8:00">8:00</option>
@@ -488,6 +497,7 @@
 						  <option value="17:30">17:30</option>
 						  
 						</select>
+						<!-- end time -->
 						<select name="selEndTime" size="1">
 						<option value="">Select End Time</option>
 						  <option value="8:00">8:00</option>
@@ -512,11 +522,12 @@
 						  <option value="17:30">17:30</option>
 						</select>
 					</div>
-
+					<!-- Date input -->
 					<label for="date">Date Input:</label>
 					<input type="date" name="date" id="date">
 					<input type="text" id="eventType" name="eventType" placeholder="Comments">
 					<div data-role="fieldcontain">
+						<!-- field that flags classes as important/regular -->
 					    <fieldset data-role="controlgroup">
 					    	<legend>Class type:</legend>
 					         	<input type="radio" name="classType" id="radio-choice-1" value="n" checked="checked"/>
@@ -527,6 +538,7 @@
 					    </fieldset>
 					</div>
 					<br><br>
+					<!-- submit/reset buttons -->
 					<input class="button" type="submit" value="Add" name="Add" data-form="ui-btn-up-a" data-theme="a" data-icon="check">
 					<input class="button" type="reset" value="Reset" name="Reset" data-form="ui-btn-up-a" data-theme="a" data-icon="delete">		
 				</form>
