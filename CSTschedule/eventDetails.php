@@ -3,31 +3,26 @@ $primaryKey = $_REQUEST["q1"];
 $field = $_REQUEST["q2"];
 $levelSet = $_REQUEST["q3"];
 $tableName = "schdule1";
+include 'functions.php';
 session_start();
 	
 require_once('config.php');
-
-	include 'functions.php';
-	require_once('config.php');
-
 	$admin = 0;
 	session_start();
-	// Connect to server and select database.
-	mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)or die("cannot connect, error: ".mysql_error());
-	mysql_select_db(DB_DATABASE)or die("cannot select DB, error: ".mysql_error());
-	$tbl_name="accounts"; // Table name
-	if($_SESSION["SESS_admin"] == 1 && isLoggedIn()) {
-		$admin = 1;
-	}
-
-
-
-
 $con=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	
+
+
+
+
 
 if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+
+if($_SESSION["SESS_admin"] == 1 && isLoggedIn()) {
+		$admin = 1;
+	}
 
 $result = mysqli_query($con,"SELECT * FROM $tableName WHERE id = '$primaryKey'");
 
