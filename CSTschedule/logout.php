@@ -8,6 +8,6 @@
 	unset($_SESSION['SESS_levelAndSet']);
 	unset($_SESSION['SESS_LOGIN_NAME']);
 	session_write_close();
-	header("location: ".HOMEURL);
+	echo "Logout Successful";
 	exit();
 ?>
