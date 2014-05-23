@@ -137,8 +137,9 @@
 
 		<!-- **************************Change schedule Dialog Box************************** -->
 		<div data-role="page" id="scheduleDialog">
+					<!-- input for week user wishes to move to -->
 					<input type="date" name="changedate" value="" id="changeDate">
-
+				<!-- Collapsible selectors for the level and set -->
 				<div id="levelCollapsible2" data-role="collapsible" data-theme="b" data-content-theme="b">
 				    <h4 ><span id="lvlHeader2">Level</span></h4>
 				    <button id="lvl1" class="ui-btn ui-btn-a" value="1" onClick="menuSelector2('lvl1', 'lvlHeader2'); getLevel('lvl1');">Level 1</button>
@@ -158,7 +159,7 @@
 				    <button id="SDsetO" class="ui-btn ui-btn-a" value="O" onClick="menuSelector2('SDsetO', 'setHeader2'); getSet('SDsetO'); collapseSet2()">Set O</button>
 				    <button id="SDsetQ" class="ui-btn ui-btn-a" value="Q" onClick="menuSelector2('SDsetQ', 'setHeader2'); getSet('SDsetQ'); collapseSet2()">Set Q</button>
 				</div>
-
+					<!-- button that takes the above inputs and selects the new schedule/week -->
 					<a href="#schedule" onClick="dateUpdate(); tableSelectorDate('tableHere')" class=" ui-btn ui-btn-aui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" data-rel="page">Get Schedule</a>
 
 
