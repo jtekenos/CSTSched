@@ -479,7 +479,6 @@ xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/logout.php",t
   xmlhttp.send();
 }
 function addButtons() { 
-  alert("addButtons ran");
  var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
