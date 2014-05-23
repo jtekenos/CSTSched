@@ -242,26 +242,63 @@ function registerSetSelect() {
   }
 }
 
+function getLevelSet() { 
+ var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+     // document.getElementById("testDivPlsIgnore").innerHTML=xmlhttp.responseText;
+     levelSet = xmlhttp.responseText;
+     tableSelectorLevelSet(levelSet);
+    }
+  }
+
+xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/getLvlSet.php",true);
+
+  xmlhttp.send();
+}
+
+
+
+function tableSelectorLevelSet(lvlSet) {
+   if (typeof lvlSet === 'undefined' || lvlSet == null) {
+    alert("please select a level and set");
+  }
+  else {
+     levelSet = lvlSet;
+      
+ var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("tableHere").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+  xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/scheduleTable.php?q1=&q2=" + levelSet,true);
+  
+  xmlhttp.send();
+}
+}
+
+
 //displays the schedule for selected week and set Ajax => scheduleTable.php
 function tableSelector(direction, tableId) { 
   addButtons();
-  levelSet = storeLevel + storeSet;
-  var lsLength = levelSet.length;
-  if(lsLength != 2) {
-    levelSet = levelSet();
+  if (typeof storeLevel === 'undefined' || typeof storeSet === 'undefined') {
+    getLevelSet();
   }
-	//levelSet = storeLevel + storeSet;
-	if(direction == "current") {
-	}
-	else if(direction == "later") {
-		var numDate = document.getElementById("numDateId").innerHTML;
-		numDate = parseInt(numDate) + 86400 * 7;
-	}
-	else if(direction == "earlier") {
-		var numDate = document.getElementById("numDateId").innerHTML;
-		numDate = parseInt(numDate) - 86400 * 7;
-	}
-
+  else {
+     levelSet = storeLevel + storeSet;
+  //levelSet = storeLevel + storeSet;
+  if(direction == "current") {
+  }
+  else if(direction == "later") {
+    var numDate = document.getElementById("numDateId").innerHTML;
+    numDate = parseInt(numDate) + 86400 * 7;
+  }
+  else if(direction == "earlier") {
+    var numDate = document.getElementById("numDateId").innerHTML;
+    numDate = parseInt(numDate) - 86400 * 7;
+  }
  var xmlhttp=new XMLHttpRequest();
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
@@ -270,24 +307,26 @@ function tableSelector(direction, tableId) {
   }
 
 if(direction == "current") {
-	xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/scheduleTable.php?q1=&q2=" + levelSet,true);
+  xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/scheduleTable.php?q1=&q2=" + levelSet,true);
 }
 else {
-	xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/scheduleTable.php?q1=" + numDate  + "&q2=" + levelSet, true);
+  xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/scheduleTable.php?q1=" + numDate  + "&q2=" + levelSet, true);
 }
   
   xmlhttp.send();
 }
 //updates stored timestamp if a new date is selected
 function dateUpdate() {
-	var newDate = document.getElementById("changeDate").value;
-	if(newDate == "") {
-		numDate = new Date().getTime() / 1000;
-	}
-	else {
-	numDate = new Date(newDate).getTime() / 1000;
-	}
-	
+  var newDate = document.getElementById("changeDate").value;
+  if(newDate == "") {
+    numDate = new Date().getTime() / 1000;
+  }
+  else {
+  numDate = new Date(newDate).getTime() / 1000;
+  }
+  
+}
+
 }
 //displays the schedule for last stored date and set Ajax => scheduleTable.php
 function tableSelectorDate(tableId) { 
@@ -599,20 +638,5 @@ function replaceClassContent(matchClass, content) {
             elems[i].innerHTML = content;
         }
     }
-}
-
-function getLevelSet() { 
- var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-     // document.getElementById("testDivPlsIgnore").innerHTML=xmlhttp.responseText;
-     levelSet = xmlhttp.responseText;
-     alert("get levelSet function ran");
-    }
-  }
-
-xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/getLvlSet.php",true);
-
-  xmlhttp.send();
 }
 
