@@ -59,7 +59,6 @@
 			$_SESSION['SESS_LOGIN_NAME'] = $member['username'];
 			session_write_close();
 			echo "Welcome ", $_SESSION['SESS_LOGIN_NAME'], "<br>";
-			
 			exit();
 		}else {
 			//Login failed
