@@ -1,5 +1,6 @@
 <?php
 include "functions.php";
+
 	//Start session
 	session_start();
 
@@ -11,8 +12,8 @@ include "functions.php";
 	//Sanitize the POST values
 	$password = mysqli_real_escape_string($con, $_POST['pwd']);
 	$email = mysqli_real_escape_string($con, $_POST['txtEmail']);
-	$level = mysqli_real_escape_string($con, $_POST['selLevel']);
-	$set = mysqli_real_escape_string($con, $_POST['selSet']);
+	$level = mysqli_real_escape_string($con, $_POST['levelp']);
+	$set = mysqli_real_escape_string($con, $_POST['setp']);
 	$levelSet = $level . $set;
 	
 	$tableName = "accounts";
@@ -22,7 +23,7 @@ include "functions.php";
 
 
 
-$result = mysqli_query($con,"SELECT * FROM $tableName WHERE $tempID = '$accountID'");
+$result = mysqli_query($con,"SELECT * FROM $tableName WHERE accountID = '$tempID'");
 
 while($row = mysqli_fetch_array($result)) {
   $Oldpassword = $row['password'];
@@ -34,17 +35,22 @@ while($row = mysqli_fetch_array($result)) {
 	if ($password == '') {
 		$password = $Oldpassword;
 	}
+	/*
+	if( strcmp($password, $cpassword) != 0 ) {
+		echo "Passwords do not match";
+		$errflag = true;
+		*/
 	if ($email == '') {
 		$email = $Oldemail;
 	}
-	if ($levelSet == '') {
+	if (strlen($levelSet) != 2) {
 		$levelSet = $OldlevelSet;
 	}
 
 $passed = 1;
 
 if($passed == 1) {
-	mysqli_query($con,"UPDATE $tableName SET password = '$password', email = '$email', levelAndSet = '$levelSet' WHERE '$tempID'='$accountID'");
+	mysqli_query($con,"UPDATE $tableName SET password = '$password', email = '$email', levelAndSet = '$levelSet' WHERE accountID = '$tempID'");
 }
 
 
@@ -56,5 +62,4 @@ if($passed == 1) {
 }
 
 	mysqli_close($con);
-
 ?>

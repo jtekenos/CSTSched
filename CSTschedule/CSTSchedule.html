@@ -656,45 +656,55 @@
 			</div><!-- /header -->
 
 			<div role="main" class="ui-content">
-				<h2 id="uNameProfile">User Profile</h2>
+				<!-- script that pushes form to register.php using ajax and calles response -->
+				<script>
+		            $(function() {
+		                $("#profileForm").on("submit", function(e) {
+		                    e.preventDefault();
+		                    $.ajax({
+		                        url: $(this).attr("action"),
+		                        type: 'POST',
+		                        data: $(this).serialize(),
+		                        success: function(data) {
+		                            $("#profileResponse").html(data);
+		                        }
+		                    });
+		                });
+		            });
+		        </script>
+				<h2>User Profile</h2>
+				<div id="profileResponse"></div>
 				<!-- form that takes input and modifies user profile -->
-				<form id="registerForm" name="registerForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/profile.php">
+				<form id="profileForm" name="registerForm" method="post" action="http://okoceanfisheries.host56.com/CSTschedule/profile.php">
 					<!-- change password input -->
-					<input type="password" id="pwd" name="password" placeholder="Change Password">
+					<input type="password" id="pwd" name="pwd" placeholder="Change Password">
 					<!-- confrim new password input -->
 					<input type="password" id="confirmPwd" name="cpassword" placeholder="Re-enter Password">
 					<!-- Change email input-->
-					<input type="email" id="txtEmail" name="email" placeholder="Email: bob123@gmail.com">
-					<!-- script that validates password and email -->
-					<script>
-					$( "#registerForm" ).validate({
-						rules: {
-				    			confirmPwd: {
-				      			equalTo: "#pwd"
-				    		}
-				  		},
-						messages: {
-							email: {
-								txtEmail: "Please provide valid email"
-							}
-						}
-					});
-					</script>
+					<input type="email" id="txtEmail" name="txtEmail" placeholder="Email: bob123@gmail.com">
+
 					<!-- level selector -->
-					<select>
-						<option>Select Level</option>
-				      	<option id="lvl1" value="1">Level 1</option>
-				      	<option id="lvl2" value="2">Level 2</option>
-				      	<option id="lvl3" value="3">Level 3</option>
-				      	<option id="lvl4" value="4">Level 4</option>
-				    </select>
-				    <!-- set selector -->
-					<select>
-						<option>Select Set</option>
-				      	<option id="setA" value="A">Set A</option>
-				   		<option id="setB" value="B">Set B</option>
-				   		<option id="setC" value="C">Set C</option>
-				    </select>
+					    <select name="levelp">
+					            <option value="noLvl">Select Level</option>
+					            <option value="1">Level 1</option>
+					            <option value="2">Level 2</option>
+					            <option value="3">Level 3</option>
+					            <option value="4">Level 4</option>
+					    </select>
+					    <!-- set selector -->
+					    <select name="setp">
+					            <option>Select Set</option>
+					            <option value="noLvl">Select level first</option>
+					            <option value="A">Set A</option>
+					            <option value="B">Set B</option>
+					            <option value="C">Set C</option>
+					            <option value="D">Set D</option>
+					            <option value="E">Set E</option>
+					            <option value="G">Set G</option>
+					            <option value="L">Set L</option>
+					            <option value="O">Set O</option>
+					            <option value="Q">Set Q</option>
+					    </select>
 				    <!-- submint/reset buttons -->
 					<div id="RegisterButtonDiv">
 						<input class="button" type="submit" value="Update" name="Update" data-icon="check" data-transition="pop">
