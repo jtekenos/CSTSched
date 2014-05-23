@@ -89,15 +89,15 @@
 
 	//Create INSERT query
 	if($errflag == false) {
-		$qry = "INSERT INTO accounts(username, levelAndSet, email, password, notifyEmail, notifySMS) VALUES('$login','$level$set', '$email','$password','$slideremail','$slidersms')";
-		echo "registration successful";
+		$qry = "INSERT INTO accounts(username, levelAndSet, email, password) VALUES('$login','$level$set', '$email','$password')";
+		
 	$result = mysql_query($qry);
 	}
 	
 	
 	//Check whether the query was successful or not
 	if($result) {
-		
+		echo "registration successful";
 		exit();
 	}else {
 		die("Query failed");
