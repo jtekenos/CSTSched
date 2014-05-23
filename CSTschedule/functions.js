@@ -148,6 +148,7 @@ function getSet(setId) {
 
 //displays the schedule for selected week and set Ajax => scheduleTable.php
 function tableSelector(direction, tableId) { 
+  addButtons();
   levelSet = storeLevel + storeSet;
   var lsLength = levelSet.length;
   if(lsLength != 2) {
@@ -195,6 +196,7 @@ function dateUpdate() {
 //displays the schedule for last stored date and set Ajax => scheduleTable.php
 function tableSelectorDate(tableId) { 
 	dateUpdate();
+  addButtons();
 	levelSet = storeLevel + storeSet;
   var lsLength = levelSet.length;
   if(lsLength != 2) {
@@ -473,6 +475,23 @@ function logout() {
   }
 
 xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/logout.php",true);
+
+  xmlhttp.send();
+}
+function addButtons() { 
+  alert("addButtons ran");
+ var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      //document.getElementById("testDivPlsIgnore").innerHTML=xmlhttp.responseText;
+      var output = "";
+      replaceClassContent("addbuttonDiv", output);
+
+      var output = xmlhttp.responseText;
+       replaceClassContent("addbuttonDiv", output);
+     }
+  }
+xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/getAdminButton.php",true);
 
   xmlhttp.send();
 }
