@@ -23,6 +23,7 @@ $level = mysqli_real_escape_string($con, $_POST['selLevel2']);
 $startTime = mysqli_real_escape_string($con, $_POST['selStartTime']);
 $endTime = mysqli_real_escape_string($con, $_POST['selEndTime']);
 $date = mysqli_real_escape_string($con, $_POST['date']);
+$classType = mysqli_real_escape_string($con, $_POST['classType']);
 
 //calculates number of timeblocks used
 $startTBlock = tBlockConverter($startTime);
@@ -94,8 +95,8 @@ if($passed == 1) {
 	foreach($_POST['checkboxSet'] as $check) {
     	$checkedSet =  substr($check,3,4);
     	$levelSet = $level . $checkedSet;
-		$sql="INSERT INTO schdule1 (eventname, location, timefrom, timeto, instructor, comments, level_id, timeBlocks, event_date)
-		VALUES ('$event','$location','$startTime','$endTime','$prof','$eventType', '$levelSet', '$tBlocks', '$date')";
+		$sql="INSERT INTO schdule1 (eventname, location, timefrom, timeto, instructor, comments, level_id, timeBlocks, event_date, special)
+		VALUES ('$event','$location','$startTime','$endTime','$prof','$eventType', '$levelSet', '$tBlocks', '$date', '$classType')";
 			
 		if (!mysqli_query($con,$sql)) {
 	  		die('Error: ' . mysqli_error($con));
