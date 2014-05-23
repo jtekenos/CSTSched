@@ -548,12 +548,14 @@
 
 		<!-- ***************************LOGIN PAGE*************************** -->
 		<div id="loginPage" data-role="page">
-
+			<!-- header -->
 			<div id="navHeader" data-role="header">
+				<!-- home button -->
 				<a href="#index" id="backButton"><img src="homeButton.jpg" width="45" height="45" alt="Home" data-transition="pop"/></a>
 			</div><!-- /header -->
 
 		<div role="main" class="ui-content">
+		<!-- script that pushes form to login.php and calles the reponse -->
         <script>
             $(function() {
                 $("#formID").on("submit", function(e) {
@@ -570,11 +572,14 @@
             });
         </script>
 
-        <!-- An example of a form that gets submitted -->
+        <!-- form that takes input and send it to login.php for processing -->
     <div id="responseID"></div>
        <form id="formID" action="http://okoceanfisheries.host56.com/CSTschedule/login.php"> <!--action tells ajax which php file to use-->
+       		<!-- User name input -->
             <input type="text" id="username" name="username" placeholder="Username">
+            <!-- password input -->
             <input type="password" id="password" name="password" placeholder="Password">
+            <!-- submit button -->
             <input type="submit" value="Submit"/>
         </form>
         
