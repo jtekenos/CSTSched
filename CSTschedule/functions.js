@@ -124,17 +124,24 @@ function dynamicSetCheckbox2() {
 
 function getLevel(lvlId) {
 	storeLevel = document.getElementById(lvlId).value;
+  levelSet = storeLevel + storeSet;
 	return storeLevel;
 }
 
 function getSet(setId) {
 	storeSet = document.getElementById(setId).value;
+  levelSet = storeLevel + storeSet;
 	return storeSet;
 }
 
 //displays the schedule for selected week and set Ajax => scheduleTable.php
 function tableSelector(direction, tableId) { 
-	levelSet = storeLevel + storeSet;
+  levelSet = storeLevel + storeSet;
+  var lsLength = levelSet.length;
+  if(lsLength != 2) {
+    levelSet = levelSet();
+  }
+	//levelSet = storeLevel + storeSet;
 	if(direction == "current") {
 	}
 	else if(direction == "later") {
@@ -177,6 +184,10 @@ function dateUpdate() {
 function tableSelectorDate(tableId) { 
 	dateUpdate();
 	levelSet = storeLevel + storeSet;
+  var lsLength = levelSet.length;
+  if(lsLength != 2) {
+    levelSet = levelSet();
+  }
 	 var xmlhttp=new XMLHttpRequest();
 	  xmlhttp.onreadystatechange=function() {
 	    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
@@ -429,7 +440,7 @@ function uNameButtons() {
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       //document.getElementById("testDivPlsIgnore").innerHTML=xmlhttp.responseText;
-      var output = innerHTML=xmlhttp.responseText;
+      var output = xmlhttp.responseText;
        replaceClassContent("userHeaderDiv", output);
     }
   }
@@ -463,3 +474,19 @@ function replaceClassContent(matchClass, content) {
         }
     }
 }
+
+function getLevelSet() { 
+ var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+     // document.getElementById("testDivPlsIgnore").innerHTML=xmlhttp.responseText;
+     levelSet = xmlhttp.responseText;
+     alert("get levelSet function ran");
+    }
+  }
+
+xmlhttp.open("GET","http://okoceanfisheries.host56.com/CSTschedule/getLvlSet.php",true);
+
+  xmlhttp.send();
+}
+
