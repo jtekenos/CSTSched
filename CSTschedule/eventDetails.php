@@ -38,15 +38,9 @@ while($row = mysqli_fetch_array($result)) {
 	  if($admin == 1) {
 	  	echo "<div id=\"eventInfoButtons\">
 
-		  		<a onclick=\"cancelEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Cancel class</a>
-
-		  		<a href=\"#modifyPage \"onclick=\"fillFields()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Modify class</a>
-
 		  		<a onclick=\"deleteEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Delete class</a>
 
-		  		<a onclick=\"cancelEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Mark as Cancelled</a>
-
-		  		<a onclick=\"importantEvent()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Mark as Important</a>
+		  		<a href=\"#modifyPage \"onclick=\"fillFields()\" id=\"LoginButton\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Modify class</a>
 
 	  		</div>";
 	  }
