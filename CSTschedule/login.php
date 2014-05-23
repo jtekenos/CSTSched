@@ -55,7 +55,7 @@
 			$member = mysql_fetch_assoc($result);
 			$_SESSION['SESS_MEMBER_ID'] = $member['accountID'];
 			$_SESSION['SESS_levelAndSet'] = $member['levelAndSet'];
-			//$_SESSION['SESS_LAST_NAME'] = $member['lastname'];
+			$_SESSION['SESS_admin'] = $member['admin'];
 			$_SESSION['SESS_LOGIN_NAME'] = $member['username'];
 			session_write_close();
 			echo "Welcome ", $_SESSION['SESS_LOGIN_NAME'], "<br>";
