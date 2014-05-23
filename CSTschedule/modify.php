@@ -121,7 +121,7 @@ if($passed == 1) {
 
 
 if($passed == 1) {
-	echo "<h2>Entry Modified</h2>
+	echo "<h2>Modification successful</h2>
 		<a href=\"CSTScheduleDenis.html#schedule\" onClick=\"tableSelectorDate('tableHere')\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Back to Schedule</a>";
 }
 
