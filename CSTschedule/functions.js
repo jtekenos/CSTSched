@@ -264,6 +264,8 @@ function getLevelSet() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
      // document.getElementById("testDivPlsIgnore").innerHTML=xmlhttp.responseText;
      levelSet = xmlhttp.responseText;
+     storeLevel = levelSet.substring(0, 1);
+     storeSet = levelSet.substring(1, 2);
      tableSelectorLevelSet(levelSet);
     }
   }
