@@ -315,6 +315,7 @@ else {
   
   xmlhttp.send();
 }
+}
 //updates stored timestamp if a new date is selected
 function dateUpdate() {
   var newDate = document.getElementById("changeDate").value;
@@ -327,16 +328,11 @@ function dateUpdate() {
   
 }
 
-}
 //displays the schedule for last stored date and set Ajax => scheduleTable.php
 function tableSelectorDate(tableId) { 
 	dateUpdate();
   addButtons();
 	levelSet = storeLevel + storeSet;
-  var lsLength = levelSet.length;
-  if(lsLength != 2) {
-    levelSet = levelSet();
-  }
 	 var xmlhttp=new XMLHttpRequest();
 	  xmlhttp.onreadystatechange=function() {
 	    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
