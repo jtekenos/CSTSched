@@ -666,7 +666,7 @@
 			<div role="main" class="ui-content">
 				<h2 id="uNameProfile">User Profile</h2>
 				<!-- form that takes input and modifies user profile -->
-				<form id="registerForm" name="registerForm" method="post" action="">
+				<form id="registerForm" name="registerForm" method="post" action="profile.php">
 					<!-- change password input -->
 					<input type="password" id="pwd" name="password" placeholder="Change Password">
 					<!-- confrim new password input -->
@@ -689,7 +689,7 @@
 					});
 					</script>
 					<!-- level selector -->
-					<select>
+					<select id="selLevel">
 						<option>Select Level</option>
 				      	<option id="lvl1" value="1">Level 1</option>
 				      	<option id="lvl2" value="2">Level 2</option>
@@ -697,7 +697,7 @@
 				      	<option id="lvl4" value="4">Level 4</option>
 				    </select>
 				    <!-- set selector -->
-					<select>
+					<select id="selSet">
 						<option>Select Set</option>
 				      	<option id="setA" value="A">Set A</option>
 				   		<option id="setB" value="B">Set B</option>
