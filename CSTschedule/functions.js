@@ -198,6 +198,21 @@ function getSet(setId) {
 	return storeSet;
 }
 
+//gets level entered on register page & displays available set select <option> only
+function registerSetSelect() {
+  var regLvl = document.getElementById('registerLevel').value
+  alert("level value " + regLvl);
+  if (regLvl == '1') {
+    $('#registerSet option[value="noLvl"]').hide();
+    $('#registerSet option[value="D"]').hide();
+    $('#registerSet option[value="E"]').hide();
+    $('#registerSet option[value="G"]').hide();
+    $('#registerSet option[value="L"]').hide();
+    $('#registerSet option[value="O"]').hide();
+    $('#registerSet option[value="Q"]').hide();
+  }
+}
+
 //displays the schedule for selected week and set Ajax => scheduleTable.php
 function tableSelector(direction, tableId) { 
   addButtons();
