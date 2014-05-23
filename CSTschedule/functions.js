@@ -654,3 +654,6 @@ function replaceClassContent(matchClass, content) {
     }
 }
 
+function clearIt(Id) {
+  document.getElementById(Id).innerHTML = "";
+}

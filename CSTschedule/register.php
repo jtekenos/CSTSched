@@ -97,7 +97,14 @@
 	
 	//Check whether the query was successful or not
 	if($result) {
-		echo "registration successful";
+		if($errflag == false) {
+			echo "<h2 style=\"text-align:center\">Registration Successful</h2>";
+
+			echo "<a href=\"#schedule\" onClick=\"tableSelector('current', 'tableHere'); uNameButtons()\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Get to Schedule</a>";
+
+			echo "<a href=\"#index\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Back</a>";
+		}
+		
 		exit();
 	}else {
 		die("Query failed");

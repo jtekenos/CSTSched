@@ -88,10 +88,10 @@
 				<!-- buttons that take user to login/registeration pages -->
 				<div class="footerButtons">
 					<div id="loginButtonDiv">
-					<a href="#loginPage" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" data-ajax="false">Login</a>
+					<a href="#loginPage" onclick="clearIt('responseID')" id="LoginButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" data-ajax="false">Login</a>
 					</div>
 					<div id="registerButtonDiv2">
-					<a href="#registerPage" id="RegisterButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" data-ajax="false">Register</a>
+					<a href="#registerPage" onclick="clearIt('RegResponseID')" id="RegisterButton" class=" ui-btn ui-btn-a ui-shadow ui-corner-all" data-form="ui-btn-up-a" data-theme="a" data-transition="pop" data-ajax="false">Register</a>
 					</div>
 
 				</div>
@@ -554,6 +554,7 @@
                         data: $(this).serialize(),
                         success: function(data) {
                             $("#responseID").html(data);
+                            window.location.href = "#loginPage";
                         }
                     });
                 });
@@ -597,6 +598,7 @@
 		                        data: $(this).serialize(),
 		                        success: function(data) {
 		                            $("#RegResponseID").html(data);
+
 		                        }
 		                    });
 		                });

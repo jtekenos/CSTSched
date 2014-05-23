@@ -58,7 +58,13 @@
 			$_SESSION['SESS_admin'] = $member['admin'];
 			$_SESSION['SESS_LOGIN_NAME'] = $member['username'];
 			session_write_close();
-			echo "Welcome ", $_SESSION['SESS_LOGIN_NAME'], "<br>";
+			$uname = $_SESSION['SESS_LOGIN_NAME'];
+			echo "<h2 style=\"text-align:center\">Welcome $uname</h2>";
+
+			echo "<a href=\"#schedule\" onClick=\"tableSelector('current', 'tableHere'); uNameButtons()\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Get to Schedule</a>";
+
+			echo "<a href=\"#index\" id=\"changeScheduleButton\" class=\"ui-btn ui-btn-aui-shadow ui-corner-all\" data-form=\"ui-btn-up-a\" data-theme=\"a\" data-transition=\"pop\">Back</a>";
+
 			exit();
 		}else {
 			//Login failed
